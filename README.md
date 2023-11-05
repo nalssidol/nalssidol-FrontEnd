@@ -3,9 +3,9 @@
 <img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=TypeScript&logoColor=white" />
 
-☀️ 날씨에 따른 착장을 추천하는 서비스, 날씨돌 ❄️
+## ☀️ 날씨에 따른 착장을 추천하는 서비스, 날씨돌 ❄️
 
-### Front-End 팀원
+### 🦁 Front-End 팀원
 
 | 이름                                  | 전공                        | Email                |
 | ------------------------------------- | --------------------------- | -------------------- |
