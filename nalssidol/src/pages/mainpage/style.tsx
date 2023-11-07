@@ -11,9 +11,9 @@ export const MainpageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 
-    background-image: url('/bgImg.png');
+    background-image: url('/배경.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
