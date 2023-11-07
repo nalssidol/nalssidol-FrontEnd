@@ -1,14 +1,13 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL:
-    "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty",
+  baseURL: "http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/",
   params: {
-    serviceKey: import.meta.env.VITE_APP_AIR_API_KEY,
+    serviceKey: import.meta.env.VITE_APP_WEARTHER_API_KEY,
     returnType: "json",
-    numOfRows: "5",
+    numOfRows: "1",
     pageNo: "1",
-    sidoName: "중구",
+    sidoName: "서울",
     ver: "1.0",
   },
 });

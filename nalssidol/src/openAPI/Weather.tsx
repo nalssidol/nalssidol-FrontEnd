@@ -4,21 +4,21 @@ import requests from "../api/weatherAPI/requests";
 import {
   ApiNowModel,
   ApiVilageFuture,
-  RainfallType,
-  SkyType,
+  DataType,
   skyFilterType,
 } from "../model/apiModel";
 import NowWeather from "./NowWeather";
+import Air from "./Air";
 
 export const Weather = () => {
   // 객체 정의 -------------------------------------------------
-  const rainfall: RainfallType = {
+  const rainfall: DataType = {
     1: "비",
     2: "비/눈",
     3: "눈",
     4: "소나기",
   };
-  const sky: SkyType = {
+  const sky: DataType = {
     1: "맑음",
     3: "구름많음",
     4: "흐림",
@@ -26,6 +26,8 @@ export const Weather = () => {
 
   // useState -------------------------------------------------
   const [data, setData] = useState<ApiVilageFuture[]>(); //단기 -> 풍속 / 시간대별날씨/최고최저기온
+  const [max, setMax] = useState<string>();
+  const [min, setMin] = useState<string>();
 
   // useEffect -------------------------------------------------
   useEffect(() => {
@@ -38,12 +40,12 @@ export const Weather = () => {
       const response = await axios.get(requests.fetchVilageFuture);
 
       const { item } = response.data.response.body.items;
-      const tmxData = item.find((res: any) => res.category === "TMX");
-      const tmnData = item.find((res: any) => res.category === "TMN");
+      setMax(item.find((res: any) => res.category === "TMX").fcstValue);
+      setMin(item.find((res: any) => res.category === "TMN").fcstValue);
+      // setMax(tmxData.fcstValue);
+      // setMin(tmnData.fcstValue);
 
-      console.log("최고기온:", tmxData.fcstValue);
-      console.log("최저기온:", tmnData.fcstValue);
-      console.log(response);
+      // console.log(response);
       // console.log(fetchURL, " : ", data);
       setData(item);
     } catch (error) {
@@ -86,7 +88,8 @@ export const Weather = () => {
 
   return (
     <div>
-      -- 강수형태 PTY --
+      <h1 style={{ fontSize: "120%", color: "red" }}>날씨 정보</h1>
+      최고기온 {max} 최저기온 {min}
       {data &&
         skyFilter().map((data, index) => (
           <div key={index}>
@@ -97,8 +100,13 @@ export const Weather = () => {
             - {data.type}
           </div>
         ))}
-      now
+      <br />
+      <h1 style={{ fontSize: "120%", color: "red" }}>현재 기온</h1>
       <NowWeather />
+      <br />
+      <h1 style={{ fontSize: "120%", color: "red" }}>미세먼지</h1>
+      <Air />
+      <br />
     </div>
   );
 };
