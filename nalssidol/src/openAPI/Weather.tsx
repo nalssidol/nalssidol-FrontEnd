@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../api/weatherAPI/axios";
 import requests from "../api/weatherAPI/requests";
-import {
-  ApiNowModel,
-  ApiVilageFuture,
-  DataType,
-  skyFilterType,
-} from "../model/apiModel";
+import { ApiVilageFuture, DataType, skyFilterType } from "../model/apiModel";
 import NowWeather from "./NowWeather";
 import Air from "./Air";
 
@@ -42,10 +37,8 @@ export const Weather = () => {
       const { item } = response.data.response.body.items;
       setMax(item.find((res: any) => res.category === "TMX").fcstValue);
       setMin(item.find((res: any) => res.category === "TMN").fcstValue);
-      // setMax(tmxData.fcstValue);
-      // setMin(tmnData.fcstValue);
 
-      // console.log(response);
+      console.log(response);
       // console.log(fetchURL, " : ", data);
       setData(item);
     } catch (error) {
@@ -86,10 +79,30 @@ export const Weather = () => {
     return result;
   };
 
+  const isRainy = () => {
+    return data?.some((filteredData) => {
+      return (
+        filteredData.category === "PTY" &&
+        (filteredData.fcstValue === "1" || filteredData.fcstValue === "2")
+      );
+    });
+  };
+
+  const isSnow = () => {
+    return data?.some((filteredData) => {
+      return (
+        filteredData.category === "PTY" &&
+        (filteredData.fcstValue === "2" || filteredData.fcstValue === "3")
+      );
+    });
+  };
+
   return (
     <div>
       <h1 style={{ fontSize: "120%", color: "red" }}>날씨 정보</h1>
       최고기온 {max} 최저기온 {min}
+      {isRainy() && <div>비 예보가 있어요</div>}
+      {isSnow() && <div>눈 예보가 있어요</div>}
       {data &&
         skyFilter().map((data, index) => (
           <div key={index}>

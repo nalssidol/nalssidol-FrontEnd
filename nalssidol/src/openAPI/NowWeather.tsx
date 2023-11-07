@@ -23,7 +23,7 @@ const NowWeather = () => {
       const realtimeData = item.find((res: any) => res.category === "T1H");
       setData(realtimeData);
       // console.log(realtimeData);
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
