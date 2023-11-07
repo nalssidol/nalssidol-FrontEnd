@@ -3,12 +3,12 @@ import axios from "../api/weatherAPI/axios";
 import requests from "../api/weatherAPI/requests";
 import {
   ApiNowModel,
-  ApiFutuerModel,
   ApiVilageFuture,
   RainfallType,
   SkyType,
   skyFilterType,
 } from "../model/apiModel";
+import NowWeather from "./NowWeather";
 
 export const Weather = () => {
   // 객체 정의 -------------------------------------------------
@@ -25,23 +25,17 @@ export const Weather = () => {
   };
 
   // useState -------------------------------------------------
-  const [vilageFutureData, setVilageFutureData] = useState<ApiVilageFuture[]>(); //단기 -> 풍속 / 시간대별날씨/최고최저기온
-  const [ultraNowData, setUltraNowData] = useState<ApiNowModel[]>(); //실황 -> 현재 기온
-  const [ultraFutureData, setUltraFutureData] = useState<ApiFutuerModel[]>(); //초단기
-  const [versionData, setVersionData] = useState([]); //버전
+  const [data, setData] = useState<ApiVilageFuture[]>(); //단기 -> 풍속 / 시간대별날씨/최고최저기온
 
   // useEffect -------------------------------------------------
   useEffect(() => {
-    fetchData(requests.fetchVilageFuture, setVilageFutureData);
-    fetchData(requests.fetchUltraNow, setUltraNowData);
-    // fetchData(requests.fetchUltraFuture, setUltraFutureData);
-    // fetchData(requests.fetchVersion, setVersionData);
+    fetchData();
   }, []);
 
   // 함수 정의 -------------------------------------------------
-  const fetchData = async (fetchURL: string, setData: any) => {
+  const fetchData = async () => {
     try {
-      const response = await axios.get(fetchURL);
+      const response = await axios.get(requests.fetchVilageFuture);
 
       const { item } = response.data.response.body.items;
       const tmxData = item.find((res: any) => res.category === "TMX");
@@ -60,13 +54,13 @@ export const Weather = () => {
   const skyFilter = () => {
     const result: skyFilterType[] = [];
 
-    vilageFutureData &&
-      vilageFutureData
+    data &&
+      data
         .filter((data) => data.category === "PTY")
         .forEach((filteredData) => {
           if (filteredData.fcstValue === "0") {
-            const skyData = vilageFutureData
-              .filter((data) => data.category === "SKY")
+            const skyData = data
+              .filter((item) => item.category === "SKY")
               .find((item) => item.fcstTime === filteredData.fcstTime);
 
             if (skyData) {
@@ -92,13 +86,8 @@ export const Weather = () => {
 
   return (
     <div>
-      {ultraNowData?.map((data) => (
-        <div>
-          {data.category} : {data.obsrValue}
-        </div>
-      ))}
       -- 강수형태 PTY --
-      {vilageFutureData &&
+      {data &&
         skyFilter().map((data, index) => (
           <div key={index}>
             {data.fcstDate}/{data.fcstTime} :{" "}
@@ -108,6 +97,8 @@ export const Weather = () => {
             - {data.type}
           </div>
         ))}
+      now
+      <NowWeather />
     </div>
   );
 };
