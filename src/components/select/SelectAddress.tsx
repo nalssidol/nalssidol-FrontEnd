@@ -1,4 +1,3 @@
-import React from "react";
 import Address from "../../data/address_data.json";
 
 type Props = {

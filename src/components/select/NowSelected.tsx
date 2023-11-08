@@ -1,4 +1,3 @@
-import React from "react";
 type Props = { firstAddress: string; secondAddress: string };
 
 const NowSelected = (props: Props) => {

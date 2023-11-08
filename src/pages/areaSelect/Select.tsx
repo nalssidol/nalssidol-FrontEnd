@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { API } from "../../api/axios";
 import NowSelected from "../../components/select/NowSelected";
 import SelectAddress from "../../components/select/SelectAddress";
