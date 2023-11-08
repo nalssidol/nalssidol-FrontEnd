@@ -12,7 +12,7 @@ import requests from "../../api/weatherAPI/requests";
 const Mainpage: React.FC = () => {
   //학교 위치 or 현재 위치로 변경
   const [city, setCity] = useState<string>("서울특별시");
-  const [gu, setGu] = useState<string>("용산구");
+  const [gu, setGu] = useState<string>("중구");
   const [nx, setNx] = useState<number>(55);
   const [ny, setNy] = useState<number>(127);
   //---
@@ -42,7 +42,7 @@ const Mainpage: React.FC = () => {
         <SubSlider />
         <WindowBox vilageData={vilageData} city={city} gu={gu} />
         <ClothesBoxs />
-        <NalaldolBox />
+        <NalaldolBox vilageData={vilageData} />
       </S.MainpageWrapper>
     </>
   );
