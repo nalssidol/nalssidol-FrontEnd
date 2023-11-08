@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "../api/weatherAPI/axios";
 import requests from "../api/weatherAPI/requests";
-import { ApiVilageFuture, DataType, skyFilterType } from "../model/apiModel";
+import { ApiVilageFuture, DataType } from "../model/apiModel";
 import NowWeather from "./NowWeather";
 import Air from "./Air";
+import { WeatherFilter } from "../utils/weatherIcon";
 
 export const Weather = () => {
   // 객체 정의 -------------------------------------------------
@@ -26,7 +27,7 @@ export const Weather = () => {
 
   // useEffect -------------------------------------------------
   useEffect(() => {
-    // fetchData(); 호출 방지
+    fetchData();
   }, []);
 
   // 함수 정의 -------------------------------------------------
@@ -45,39 +46,6 @@ export const Weather = () => {
       console.error("Error fetching data:", error);
     }
   };
-
-  // const skyFilter = () => {
-  //   const result: skyFilterType[] = [];
-
-  //   data &&
-  //     data
-  //       .filter((data) => data.category === "PTY")
-  //       .forEach((filteredData) => {
-  //         if (filteredData.fcstValue === "0") {
-  //           const skyData = data
-  //             .filter((item) => item.category === "SKY")
-  //             .find((item) => item.fcstTime === filteredData.fcstTime);
-
-  //           if (skyData) {
-  //             result.push({
-  //               fcstDate: skyData.fcstDate,
-  //               fcstTime: skyData.fcstTime,
-  //               fcstValue: skyData.fcstValue,
-  //               type: "SKY",
-  //             });
-  //           }
-  //         } else {
-  //           result.push({
-  //             fcstDate: filteredData.fcstDate,
-  //             fcstTime: filteredData.fcstTime,
-  //             fcstValue: filteredData.fcstValue,
-  //             type: "PTY",
-  //           });
-  //         }
-  //       });
-
-  //   return result;
-  // };
 
   const isRainy = () => {
     return data?.some((filteredData) => {
@@ -103,8 +71,8 @@ export const Weather = () => {
       최고기온 {max} 최저기온 {min}
       {isRainy() && <div>비 예보가 있어요</div>}
       {isSnow() && <div>눈 예보가 있어요</div>}
-      {/* {data &&
-        skyFilter().map((data, index) => (
+      {data &&
+        WeatherFilter(data).map((data, index) => (
           <div key={index}>
             {data.fcstDate}/{data.fcstTime} :{" "}
             {data.type === "SKY"
@@ -112,7 +80,7 @@ export const Weather = () => {
               : rainfall[parseInt(data.fcstValue)]}{" "}
             - {data.type}
           </div>
-        ))} */}
+        ))}
       <br />
       <h1 style={{ fontSize: "120%", color: "red" }}>현재 기온</h1>
       <NowWeather />

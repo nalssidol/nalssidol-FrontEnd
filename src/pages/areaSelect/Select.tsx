@@ -27,6 +27,8 @@ const Select = () => {
         console.log(response.data);
         setNx(response.data.nx);
         setNy(response.data.ny);
+        console.log(nx);
+        console.log(ny);
       })
       .catch((error) => {
         console.error("API 요청 실패:", error);
