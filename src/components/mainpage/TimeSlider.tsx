@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
 import * as S from "./style";
+import { WeatherFilter } from "../../utils/weatherIcon";
+import { ApiVilageFuture, DataType } from "../../model/apiModel";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "./swiper.css";
 
-import { WeatherFilter } from "../../utils/weatherIcon";
-import { ApiVilageFuture, DataType } from "../../model/apiModel";
-import axios from "../../api/weatherAPI/axios";
-import requests from "../../api/weatherAPI/requests";
+type Props = {
+  vilageData: ApiVilageFuture[];
+};
 
-const TImeSlider: React.FC = () => {
+const TImeSlider = (props: Props) => {
   // 객체 정의 -------------------------------------------------
   const rainfall: DataType = {
     1: "/weather4.png", //비
@@ -24,27 +25,6 @@ const TImeSlider: React.FC = () => {
     4: "/weather3.png", //흐림
   };
 
-  // useState, useEffect 정의 ---------------------------------
-  const [data, setData] = useState<ApiVilageFuture[]>(); //단기 -> 풍속 / 시간대별날씨/최고최저기온
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // 함수 정의 -------------------------------------------------
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(requests.fetchVilageFuture);
-      const { item } = response.data.response.body.items;
-
-      // console.log(response);
-      // console.log(fetchURL, " : ", data);
-      setData(item);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
   return (
     <>
       <S.TimeSliderWrapper>
@@ -54,8 +34,8 @@ const TImeSlider: React.FC = () => {
             slidesPerView={4}
             // direction='vertical'
           >
-            {data &&
-              WeatherFilter(data).map((time, index) => (
+            {props.vilageData &&
+              WeatherFilter(props.vilageData).map((time, index) => (
                 <SwiperSlide key={index}>
                   <S.TimeBox>
                     <p>{time.fcstTime}</p>

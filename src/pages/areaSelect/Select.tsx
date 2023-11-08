@@ -2,8 +2,13 @@ import { useState } from "react";
 import { API } from "../../api/axios";
 import NowSelected from "../../components/select/NowSelected";
 import SelectAddress from "../../components/select/SelectAddress";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Select = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location.state);
+
   //navigate 로 정보 담아주거나 context or recoil 사용
   const [nx, setNx] = useState<number>();
   const [ny, setNy] = useState<number>();
@@ -29,6 +34,8 @@ const Select = () => {
         setNy(response.data.ny);
         console.log(nx);
         console.log(ny);
+
+        navigate("", { state: [nx, ny] });
       })
       .catch((error) => {
         console.error("API 요청 실패:", error);

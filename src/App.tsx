@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "./globalStyle";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const BackGroundColor = styled.div`
   width: 100vw;
@@ -12,7 +14,7 @@ const BackGroundColor = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #FEFDF9;
+  background-color: #fefdf9;
 `;
 
 const Wrapper = styled.div`
@@ -24,7 +26,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  background-color: #FEFDF9;
+  background-color: #fefdf9;
   /* background-image: url('/bgImg.png');
   background-size: 100% auto;
   background-size: cover; */
@@ -35,12 +37,14 @@ const Wrapper = styled.div`
 const App: React.FC = () => {
   return (
     <>
-      <GlobalStyle />
-      <BackGroundColor>
-        <Wrapper>
-          <Outlet />
-        </Wrapper>
-      </BackGroundColor>
+      <Provider store={store}>
+        <GlobalStyle />
+        <BackGroundColor>
+          <Wrapper>
+            <Outlet />
+          </Wrapper>
+        </BackGroundColor>
+      </Provider>
     </>
   );
 };

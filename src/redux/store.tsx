@@ -1,6 +1,12 @@
-// import { createStore } from "redux";
-// import counterReducer from "./reducers";
+// store.ts
+import { createStore, combineReducers } from "redux";
+import weatherReducer from "./reducers";
+import initialState from "./state";
 
-// const store = createStore(counterReducer);
+const rootReducer = combineReducers({
+  weather: weatherReducer,
+});
 
-// export default store;
+const store = createStore(rootReducer, { weather: initialState });
+
+export default store;
