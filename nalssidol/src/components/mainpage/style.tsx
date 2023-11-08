@@ -22,9 +22,11 @@ export const TimeSliderBox = styled.div`
 
     display: flex;
     flex-direction: row;
+    position: relative;
 `
 export const TimeBox = styled.div`
-    width: 17%; // 64px
+    /* width: 17%; // 64px */
+    width: 100%;
     height: 100%;
 
     display: flex;
@@ -41,7 +43,7 @@ export const TimeBox = styled.div`
         width: 100%;
     }
     
-    border: 1px solid fuchsia;
+    /* border: 1px solid fuchsia; */
 `
 
 // SubSlider.tsx
@@ -67,6 +69,8 @@ export const SubSliderWrapper = styled.div`
 export const SubSliderBox = styled.div`
     width: 66%; // 284px
     height: 100%; // 42px
+
+    position: relative;
     
     border-radius: 6.624px;
     border: 1.5px solid #FFD990;
@@ -76,7 +80,7 @@ export const SubSliderBox = styled.div`
 
 // WindowBox.tsx
 export const WindowBoxWrapper = styled.div`
-    width: 230px;
+    width: 50vw; // 230px
     max-width: 430px;
     height: 28%;
 
@@ -86,12 +90,12 @@ export const WindowBoxWrapper = styled.div`
     justify-content: center;
 
     color: #FFF;
-    color: #000000; // 글씨 확인용
+    /* color: #000000; // 글씨 확인용 */
     
     border: 2px solid aquamarine;
 `
 export const Location = styled.div`
-    width: 230px;
+    width: 100%; // 230px
     border-bottom: 1px solid #FFF;
 
     display: flex;
@@ -100,16 +104,19 @@ export const Location = styled.div`
     position: relative;
 
     /* padding-top: 30%; */
-    /* padding-bottom: 5px; */
+    padding-bottom: 5px;
 
     font-family: Gmarket Sans; // 폰트 확정?
     font-size: 18px;
 
     img {
-        width: 16px;
-        height: 16px;
+        width: 7%; // 16px
+        /* height: 16px; */
         position: absolute;
         right: 0;
+        transform: translate(0, 20%);
+
+        border: 1px solid fuchsia;
     }
 
     border: 1px solid fuchsia;
