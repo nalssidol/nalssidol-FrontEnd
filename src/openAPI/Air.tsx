@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ApiAirModel, DataType } from "../model/apiModel";
 import axios from "../api/airAPI/axios";
 
@@ -11,11 +11,10 @@ const Air = () => {
     4: "매우나쁨",
   };
   const [data, setData] = useState<ApiAirModel[]>(); //실황 -> 현재 기온
-  /*
+
   useEffect(() => {
     fetchData();
   }, []);
-*/
   // 함수 정의 -------------------------------------------------
 
   const fetchData = async () => {
