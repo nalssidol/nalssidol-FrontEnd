@@ -1,9 +1,11 @@
+import * as S from "./styled";
 import Address from "../../data/address_data.json";
 
 type Props = {
-  firstAddress: string;
-  firstOnClick(item: string): void;
-  secondOnClick(item: string): void;
+  city: string;
+  gu: string;
+  cityOnClick(item: string): void;
+  guOnClick(item: string): void;
 };
 
 const SelectAddress = (props: Props) => {
@@ -12,25 +14,41 @@ const SelectAddress = (props: Props) => {
   const uniqueSiValues = [...new Set(address.map((item) => item.si))];
 
   return (
-    <div>
-      <div>지역명 선택</div>
-      <div style={{ display: "flex" }}>
-        <div>
-          <div>시/도</div>
-          {uniqueSiValues.map((data) => (
-            <div onClick={() => props.firstOnClick(data)}>{data}</div>
+    <S.SelectAddressWrap>
+      <S.SelectBar>지역명 선택</S.SelectBar>
+      <S.SelectWrapper>
+        <S.CitySection>
+          <S.CityText>시/도</S.CityText>
+          <S.UnderLine />
+          {uniqueSiValues.map((data, index) => (
+            <S.CityContext
+              key={index}
+              bgcolor={props.city === data ? "#F1A000" : "#fff"}
+              fontcolor={props.city === data ? "#fff" : ""}
+              onClick={() => props.cityOnClick(data)}
+            >
+              {data}
+            </S.CityContext>
           ))}
-        </div>
-        <div>
-          <div>구/군</div>
+        </S.CitySection>
+        <S.GuSection>
+          <S.CityText>구/군</S.CityText>
+          <S.UnderLine />
           {address
-            .filter((data) => data.si === props.firstAddress)
-            .map((data) => (
-              <div onClick={() => props.secondOnClick(data.gu)}>{data.gu}</div>
+            .filter((data) => data.si === props.city)
+            .map((data, index) => (
+              <S.GuContext
+                key={index}
+                bgcolor={props.gu === data.gu ? "#F1A000" : "#fff"}
+                fontcolor={props.gu === data.gu ? "#fff" : ""}
+                onClick={() => props.guOnClick(data.gu)}
+              >
+                {data.gu}
+              </S.GuContext>
             ))}
-        </div>
-      </div>
-    </div>
+        </S.GuSection>
+      </S.SelectWrapper>
+    </S.SelectAddressWrap>
   );
 };
 
