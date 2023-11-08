@@ -11,12 +11,13 @@ const Air = () => {
     4: "매우나쁨",
   };
   const [data, setData] = useState<ApiAirModel[]>(); //실황 -> 현재 기온
-
+  /*
   useEffect(() => {
     fetchData();
   }, []);
-
+*/
   // 함수 정의 -------------------------------------------------
+
   const fetchData = async () => {
     try {
       const response = await axios.get("getCtprvnRltmMesureDnsty");
