@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./style"
+import * as S from "./style";
 import TImeSlider from "../../components/mainpage/TimeSlider";
 import SubSlider from "../../components/mainpage/SubSlider";
 import WindowBox from "../../components/mainpage/WindowBox";

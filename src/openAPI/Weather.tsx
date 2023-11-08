@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "../api/weatherAPI/axios";
 import requests from "../api/weatherAPI/requests";
 import { ApiVilageFuture, DataType, skyFilterType } from "../model/apiModel";
 import NowWeather from "./NowWeather";
 import Air from "./Air";
-import { WeatherFilter } from "../utils/weatherIcon";
 
 export const Weather = () => {
   // 객체 정의 -------------------------------------------------
@@ -27,7 +26,7 @@ export const Weather = () => {
 
   // useEffect -------------------------------------------------
   useEffect(() => {
-    fetchData();
+    // fetchData(); 호출 방지
   }, []);
 
   // 함수 정의 -------------------------------------------------

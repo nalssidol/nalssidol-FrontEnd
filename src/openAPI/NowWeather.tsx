@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { ApiNowModel } from "../model/apiModel";
 import axios from "../api/weatherAPI/nowDataAxios";
 import requests from "../api/weatherAPI/requests";

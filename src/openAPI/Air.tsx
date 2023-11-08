@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { ApiAirModel, DataType } from "../model/apiModel";
 import axios from "../api/airAPI/axios";
 
