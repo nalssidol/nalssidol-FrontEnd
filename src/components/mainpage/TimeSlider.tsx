@@ -26,6 +26,50 @@ const TImeSlider = (props: Props) => {
     4: "/weather3.png", //흐림
   };
 
+  // 현재시간 -> now
+  const today: Date = new Date();
+  const time: number = today.getHours();
+  console.log(time);
+
+  interface HoursToTimeMap {
+    [key: number]: string;
+  }
+  
+  const HoursToTime: HoursToTimeMap = {
+    0: "오전 12시",
+    1: "오전 1시",
+    2: "오전 2시",
+    3: "오전 3시",
+    4: "오전 4시",
+    5: "오전 5시",
+    6: "오전 6시",
+    7: "오전 7시",
+    8: "오전 8시",
+    9: "오전 9시",
+    10: "오전 10시",
+    11: "오전 11시",
+    12: "오후 12시",
+    13: "오후 1시",
+    14: "오후 2시",
+    15: "오후 3시",
+    16: "오후 4시",
+    17: "오후 5시",
+    18: "오후 6시",
+    19: "오후 7시",
+    20: "오후 8시",
+    21: "오후 9시",
+    22: "오후 10시",
+    23: "오후 11시",
+  }
+  const getCurrentTime = (currentTime: number): string => {
+    return HoursToTime[currentTime] || "오전 9시";
+  }
+  const Now: string = getCurrentTime(time);
+  console.log(Now);
+  
+  // 현재시간으로 슬라이드 이동
+  const nowSlide = props.vilageData.findIndex(time => time.fcstTime === Now);
+
   return (
     <>
       <S.TimeSliderWrapper>
@@ -33,12 +77,13 @@ const TImeSlider = (props: Props) => {
           <Swiper
             spaceBetween={27}
             slidesPerView={4}
+            initialSlide={nowSlide >= 0 ? nowSlide : 0}
           >
             {props.vilageData &&
               WeatherFilter(props.vilageData).map((time, index) => (
                 <SwiperSlide key={index}>
                   <S.TimeBox>
-                    <p>{time.fcstTime}</p>
+                    <p>{Now === time.fcstTime ? "Now" : time.fcstTime}</p>
                     <img
                       src={
                         time.type === "SKY"
