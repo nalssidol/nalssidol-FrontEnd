@@ -21,10 +21,10 @@ const NowWeather = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(requests.fetchUltraNow);
-      // const { item } = response.data.response.body.items;
-      // const realtimeData = item.find((res: any) => res.category === "T1H");
-      // setData(realtimeData);
-      // console.log(realtimeData);
+      const { item } = response.data.response.body.items;
+      const realtimeData = item.find((res: any) => res.category === "T1H");
+      setData(realtimeData);
+      console.log(realtimeData);
       console.log(response);
     } catch (error) {
       console.error("Error fetching data:", error);
