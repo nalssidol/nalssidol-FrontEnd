@@ -21,8 +21,6 @@ const WindowBox = (props: Props) => {
   // console.log(min, max);
 
   // 창문 밖 계절이미지
-  console.log(Date());
-
   const today: Date = new Date();
   const month: number = today.getMonth() + 1;
   console.log(month);
@@ -58,7 +56,7 @@ const WindowBox = (props: Props) => {
           {props.city} {props.gu}
           <img src="/search.png" alt="검색" />
         </S.Location>
-        <S.Temperature>15℃</S.Temperature>
+        <S.Temperature>15 ℃</S.Temperature>
         <S.HighAndLow>
           최고 {parseInt(max)}℃ | 최저 {parseInt(min)}℃
         </S.HighAndLow>

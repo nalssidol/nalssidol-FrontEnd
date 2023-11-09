@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import YeongdeokSea from "../../assets/fonts/Yeongdeok Sea.ttf"
 
 // TimeSlider.tsx
 export const TimeSliderWrapper = styled.div`
@@ -34,11 +35,10 @@ export const TimeBox = styled.div`
 
     p {
         color: #322300;
-        font-family: Yeongdeok Sea; // 폰트 확정?
-        font-size: 0.8rem; // 16px
+        font-size: 0.9rem; // 16px
     }
     img {
-        width: 100%;
+        width: 90%;
     }
 `
 
@@ -65,6 +65,8 @@ export const SubSliderBox = styled.div`
     height: 100%; // 42px
 
     position: relative;
+
+    font-size: 1.2rem; // 20px
     
     border-radius: 6.624px;
     border: 1.5px solid #FFD990;
@@ -87,8 +89,6 @@ export const WindowBoxWrapper = styled.div`
     position: relative;
 
     color: #FFF;
-
-    border: 1px solid blue;
 `
 export const Location = styled.div`
     width: 100%; // 230px
@@ -102,7 +102,7 @@ export const Location = styled.div`
     /* padding-top: 30%; */
     padding-bottom: 5px;
 
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 18px;
 
     img {
@@ -122,12 +122,12 @@ export const Temperature = styled.div`
 
     padding: 8% 0 6% 0;
 
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 46px;
     font-weight: 600;
 `
 export const HighAndLow = styled.div`
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 18px;
     font-weight: 600;
 
@@ -139,8 +139,6 @@ export const SeasonImg = styled.img`
     width: 100%;
     position: absolute;
     z-index: -1;
-
-    border: 1px solid lightcoral;
 `
 
 // ClothesBoxs.tsx
@@ -171,7 +169,6 @@ export const ClothesBox = styled.div`
     }
     p {
         color: #F2A000;
-        font-family: Yeongdeok Sea; // 폰트 확정?
         font-size: 1rem; // 18px
         text-align: center;
         line-height: 140%;
@@ -222,7 +219,7 @@ export const Comment = styled.div`
     align-items: center;
 
     color: #1669B9;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 150%;
 
     background-image: url('/말풍선.png');

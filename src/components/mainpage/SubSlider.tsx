@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import * as S from "./style"
+import "../../style/styles.css"
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import "swiper/css";
@@ -37,13 +38,13 @@ const SubSlider: React.FC = () => {
                     direction='vertical'
                 >
                     <SwiperSlide>
-                        <p>미세먼지 농도 | 보통</p>
+                        <p className='yeongdeok'>미세먼지 농도 | 보통</p>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <p>바람 세기 | 약풍</p>
+                        <p className='yeongdeok'>바람 세기 | 약풍</p>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <p>강수 확률 | 20%</p>
+                        <p className='yeongdeok'>강수 확률 | 20%</p>
                     </SwiperSlide>
                 </Swiper>
             </S.SubSliderBox>

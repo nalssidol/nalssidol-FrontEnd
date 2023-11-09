@@ -37,7 +37,7 @@ const TImeSlider = (props: Props) => {
               WeatherFilter(props.vilageData).map((time, index) => (
                 <SwiperSlide key={index}>
                   <S.TimeBox>
-                    <p>{time.fcstTime}</p>
+                    <p className="yeongdeok">{time.fcstTime}</p>
                     <img
                       src={
                         time.type === "SKY"
