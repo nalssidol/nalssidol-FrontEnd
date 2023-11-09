@@ -35,6 +35,7 @@ export const TimeBox = styled.div`
 
     p {
         color: #322300;
+        font-family: Yeongdeok Sea;
         font-size: 0.9rem; // 16px
     }
     img {
@@ -66,6 +67,7 @@ export const SubSliderBox = styled.div`
 
     position: relative;
 
+    font-family: Yeongdeok Sea;
     font-size: 1.2rem; // 20px
     
     border-radius: 6.624px;
@@ -169,6 +171,7 @@ export const ClothesBox = styled.div`
     }
     p {
         color: #F2A000;
+        font-family: Yeongdeok Sea;
         font-size: 1rem; // 18px
         text-align: center;
         line-height: 140%;
@@ -219,6 +222,7 @@ export const Comment = styled.div`
     align-items: center;
 
     color: #1669B9;
+    font-family: Yeongdeok Sea;
     font-size: 0.9rem;
     line-height: 150%;
 
