@@ -1,6 +1,6 @@
 import * as S from "./style";
 import { ApiVilageFuture } from "../../model/apiModel";
-import { IsRainy, IsSnow } from "../../utils/weatherInfo";
+import { IsDoldolComent } from "../../utils/weatherInfo";
 
 type Props = {
   vilageData: ApiVilageFuture[];
@@ -40,23 +40,8 @@ const NalaldolBox = (props: Props) => {
     <>
       <S.NalaldolBoxWrapper>
         <S.Nalaldol src="/날알돌 예시.png" alt="날알돌" />
-        <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
-        <S.Comment className="yeongdeok">
-          {IsRainy(props.vilageData) && (
-            <p>
-              비가 올 예정이돌
-              <br />
-              우산을 챙겨가돌!!
-            </p>
-          )}
-          {IsSnow(props.vilageData) && (
-            <p>
-              눈이 올 예정이돌!
-              <br />
-              우산을 챙겨가돌!
-            </p>
-          )}
-        </S.Comment>
+        <S.SeasonBottom src="가을 아래.png" alt="계절 아래" />
+        <S.Comment>{IsDoldolComent(props.vilageData)}</S.Comment>
       </S.NalaldolBoxWrapper>
     </>
   );
