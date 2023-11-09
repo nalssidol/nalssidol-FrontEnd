@@ -1,7 +1,7 @@
-import { ApiNowModel, ApiVilageFuture } from "../../model/apiModel";
 import * as S from "./style";
 import "../../style/styles.css";
 import { useNavigate } from "react-router-dom";
+import { ApiNowModel, ApiVilageFuture } from "../../model/apiModel";
 
 type Props = {
   vilageData: ApiVilageFuture[];

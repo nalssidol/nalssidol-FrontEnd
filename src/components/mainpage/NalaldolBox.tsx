@@ -1,14 +1,14 @@
 import * as S from "./style";
 import { ApiVilageFuture } from "../../model/apiModel";
 import { IsDoldolComent } from "../../utils/weatherInfo";
-import "../../style/styles.css"
+import "../../style/styles.css";
 
 type Props = {
   vilageData: ApiVilageFuture[];
+  doldol: string;
 };
 
 const NalaldolBox = (props: Props) => {
-
   // 돌돌이 밑 계절이미지
   const today: Date = new Date();
   const month: number = today.getMonth() + 1;
@@ -17,7 +17,7 @@ const NalaldolBox = (props: Props) => {
   interface MonthToSeasonMap {
     [key: number]: string;
   }
-  
+
   const MonthToSeason: MonthToSeasonMap = {
     1: "/겨울 아래.png",
     2: "/겨울 아래.png",
@@ -31,16 +31,16 @@ const NalaldolBox = (props: Props) => {
     10: "/가을 아래.png",
     11: "/가을 아래.png",
     12: "/겨울 아래.png",
-  }
+  };
   const getSeasonImg = (monthNum: number): string => {
     return MonthToSeason[monthNum] || "/여름 아래.png";
-  }
+  };
   const SeasonImg: string = getSeasonImg(month);
 
   return (
     <>
       <S.NalaldolBoxWrapper>
-        <S.Nalaldol src="/날알돌 예시.png" alt="날알돌" />
+        <S.Nalaldol src={props.doldol} alt="날알돌" />
         <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
         <S.Comment>{IsDoldolComent(props.vilageData)}</S.Comment>
       </S.NalaldolBoxWrapper>

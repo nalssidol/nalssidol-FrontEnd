@@ -35,6 +35,7 @@ const Mainpage: React.FC = () => {
   const [ny, setNy] = useState<number>(DefaultNy(location.state));
   const [vilageData, setVilageData] = useState<ApiVilageFuture[]>([]);
   const [nowData, setNowData] = useState<ApiNowModel | undefined>();
+  const [doldol, setDoldol] = useState<string>("");
 
   console.log("nx: " + nx + " ny: " + ny + " city: " + city + " gu: " + gu);
 
@@ -126,8 +127,11 @@ const Mainpage: React.FC = () => {
               city={city}
               gu={gu}
             />
-            <ClothesBoxs />
-            <NalaldolBox vilageData={vilageData} />
+            <ClothesBoxs
+              nowData={nowData === undefined ? DefaultNowModel : nowData}
+              setDoldol={setDoldol}
+            />
+            <NalaldolBox vilageData={vilageData} doldol={doldol} />
           </>
         )}
       </S.MainpageWrapper>
