@@ -71,3 +71,38 @@ const month = String(today.getMonth() + 1).padStart(2, "0");
 const day = String(today.getDate() - 1).padStart(2, "0");
 
 export const FormattedDate: string = `${year}${month}${day}`;
+
+type defaultType = {
+  nx: number;
+  ny: number;
+  city: string;
+  gu: string;
+};
+export const DefaultNx = (state: defaultType): number => {
+  if (state && typeof state.nx === "number") {
+    return state.nx;
+  } else {
+    return 55;
+  }
+};
+export const DefaultNy = (state: defaultType): number => {
+  if (state && typeof state.ny === "number") {
+    return state.ny;
+  } else {
+    return 127;
+  }
+};
+export const DefaultCity = (state: defaultType): string => {
+  if (state && typeof state.city === "string") {
+    return state.city;
+  } else {
+    return "서울특별시";
+  }
+};
+export const DefaultGu = (state: defaultType): string => {
+  if (state && typeof state.gu === "string") {
+    return state.gu;
+  } else {
+    return "중구";
+  }
+};
