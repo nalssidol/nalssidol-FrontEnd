@@ -36,14 +36,16 @@ const Mainpage: React.FC = () => {
   const [vilageData, setVilageData] = useState<ApiVilageFuture[]>([]);
   const [nowData, setNowData] = useState<ApiNowModel | undefined>();
 
+  console.log("nx: " + nx + " ny: " + ny + " city: " + city + " gu: " + gu);
+
   useEffect(() => {
-    fetchData();
+    fetchFutureData();
     fetchUltraNow();
   }, []);
 
   // axios instance 정의 -------------------------------------------------
   // 단기예보 오픈 API
-  const instance = axios.create({
+  const futureInstance = axios.create({
     baseURL: "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/",
     params: {
       ServiceKey: import.meta.env.VITE_APP_WEARTHER_API_KEY,
@@ -73,11 +75,16 @@ const Mainpage: React.FC = () => {
 
   // axios fetch 함수 정의 -------------------------------------------------
   // 단기예보 오픈 API
-  const fetchData = async () => {
+  const fetchFutureData = async () => {
     try {
-      const response = await instance.get(requests.fetchVilageFuture);
+      const response = await futureInstance.get(requests.fetchVilageFuture);
       const { item } = response.data.response.body.items;
-
+      console.log(
+        item.filter((filteredData: any) => filteredData.category === "TMN")
+      );
+      console.log(
+        item.filter((filteredData: any) => filteredData.category === "TMX")
+      );
       setVilageData(item);
       setNx(item[0].nx);
       setNy(item[0].ny);
@@ -93,7 +100,10 @@ const Mainpage: React.FC = () => {
     try {
       const response = await nowInstance.get(requests.fetchUltraNow);
       const { item } = response.data.response.body.items;
-      const realtimeData = item.find((res: any) => res.category === "T1H");
+      const realtimeData = item.find(
+        (res: ApiNowModel) => res.category === "T1H"
+      );
+      console.log(realtimeData);
 
       setNowData(realtimeData);
     } catch (error) {
@@ -109,7 +119,7 @@ const Mainpage: React.FC = () => {
         ) : (
           <>
             <TImeSlider vilageData={vilageData} />
-            <SubSlider />
+            <SubSlider vilageData={vilageData} />
             <WindowBox
               vilageData={vilageData}
               nowData={nowData === undefined ? DefaultNowModel : nowData}
