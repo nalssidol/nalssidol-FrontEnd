@@ -45,6 +45,7 @@ export const SelectAddressWrap = styled.div`
   align-items: center;
 `;
 export const SelectBar = styled.div`
+  position: relative;
   width: 100%;
   height: 44px;
 
@@ -54,7 +55,7 @@ export const SelectBar = styled.div`
 
   border-radius: 150px;
   border: 1px solid #322300;
-  background: #fff;
+  background: #fdf8e5;
 
   color: #8c8a86;
   font-family: Gmarket Sans;
@@ -63,7 +64,11 @@ export const SelectBar = styled.div`
   line-height: 20px;
   letter-spacing: -0.9px;
 `;
-2;
+export const DropDown = styled.img`
+  position: absolute;
+  right: 15px;
+  width: 16px;
+`;
 export const SelectWrapper = styled.div`
   display: flex;
   width: 100%;
