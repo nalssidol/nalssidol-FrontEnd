@@ -17,11 +17,9 @@ const Select = () => {
   const cityOnClick = (item: string) => {
     setCity(item);
     setGu("");
-    // console.log(city);
   };
   const guOnClick = (item: string) => {
     setGu(item);
-    // console.log(gu);
   };
 
   const handleDataSet = async () => {
@@ -47,7 +45,7 @@ const Select = () => {
         <Loading />
       ) : (
         <>
-          <NowSelected city={city} gu={gu} />
+          <NowSelected city={location.state.city} gu={location.state.gu} />
           <S.SubWrapper>
             <SelectAddress
               city={city}

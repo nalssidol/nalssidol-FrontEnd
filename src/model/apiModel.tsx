@@ -8,6 +8,14 @@ export interface ApiModel {
 export interface ApiNowModel extends ApiModel {
   obsrValue: string;
 }
+export const DefaultNowModel = {
+  baseDate: "20231111",
+  baseTime: "1400",
+  category: "T1H",
+  nx: 60,
+  ny: 127,
+  obsrValue: "12",
+};
 export interface ApiVilageFuture extends ApiModel {
   fcstDate: string;
   fcstTime: string;

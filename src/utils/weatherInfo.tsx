@@ -68,9 +68,14 @@ export const IsSnow = (data: ApiVilageFuture[]) => {
 const today = new Date();
 const year = String(today.getFullYear());
 const month = String(today.getMonth() + 1).padStart(2, "0");
-const day = String(today.getDate() - 1).padStart(2, "0");
+const day = String(today.getDate() - 1).padStart(2, "0"); // 전일 날짜
+const nowDay = String(today.getDate()).padStart(2, "0"); // 현재 날짜
+const hours = String(today.getHours()).padStart(2, "0"); // 현재 시간
+const minutes = String(today.getMinutes()).padStart(2, "0"); // 현재 분
 
 export const FormattedDate: string = `${year}${month}${day}`;
+export const FormattedNowDate: string = `${year}${month}${nowDay}`;
+export const formattedTime: string = `${hours}${minutes}`;
 
 type defaultType = {
   nx: number;
@@ -82,7 +87,7 @@ export const DefaultNx = (state: defaultType): number => {
   if (state && typeof state.nx === "number") {
     return state.nx;
   } else {
-    return 55;
+    return 60;
   }
 };
 export const DefaultNy = (state: defaultType): number => {
