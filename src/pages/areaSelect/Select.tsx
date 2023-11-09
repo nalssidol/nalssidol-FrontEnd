@@ -8,12 +8,12 @@ import * as S from "./style";
 const Select = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location.state);
+  // console.log(location.state);
 
   //-------------------------------------------
 
-  const [city, setCity] = useState<string>("서울특별시");
-  const [gu, setGu] = useState<string>("중구");
+  const [city, setCity] = useState<string>(location.state.city);
+  const [gu, setGu] = useState<string>(location.state.gu);
   const cityOnClick = (item: string) => {
     setCity(item);
     setGu("");
@@ -30,7 +30,7 @@ const Select = () => {
         console.log(response.data);
         const location = response.data;
 
-        navigate("", { state: location });
+        navigate("/", { state: location });
       })
       .catch((error) => {
         console.error("API 요청 실패:", error);
