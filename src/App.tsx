@@ -14,7 +14,7 @@ const BackGroundColor = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: #fefdf9;
+  /* background-color: #fefdf9; */
 `;
 
 const Wrapper = styled.div`
@@ -26,10 +26,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  background-color: #fefdf9;
-  /* background-image: url('/bgImg.png');
-  background-size: 100% auto;
-  background-size: cover; */
+  /* background-color: #fefdf9; */
+
   font-family: NotoSansRegular; /* 기본 폰트 재설정 */
   color: #000;
 `;

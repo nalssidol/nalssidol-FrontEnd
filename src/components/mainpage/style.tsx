@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// import YeongdeokSea from "../../assets/fonts/Yeongdeok Sea.ttf"
 
 // TimeSlider.tsx
 export const TimeSliderWrapper = styled.div`
@@ -10,8 +11,6 @@ export const TimeSliderWrapper = styled.div`
 
     display: flex;
     justify-content: center;
-
-    border: 2px solid aquamarine;
 `
 export const TimeSliderBox = styled.div`
     width: 95%; // 410px
@@ -36,14 +35,11 @@ export const TimeBox = styled.div`
 
     p {
         color: #322300;
-        font-family: Yeongdeok Sea; // 폰트 확정?
-        font-size: 0.8rem; // 16px
+        font-size: 0.9rem; // 16px
     }
     img {
-        width: 100%;
+        width: 90%;
     }
-    
-    /* border: 1px solid fuchsia; */
 `
 
 // SubSlider.tsx
@@ -63,14 +59,14 @@ export const SubSliderWrapper = styled.div`
         position: absolute;
         right: 7%;
     }
-    
-    border: 2px solid aquamarine;
 `
 export const SubSliderBox = styled.div`
     width: 66%; // 284px
     height: 100%; // 42px
 
     position: relative;
+
+    font-size: 1.2rem; // 20px
     
     border-radius: 6.624px;
     border: 1.5px solid #FFD990;
@@ -80,19 +76,19 @@ export const SubSliderBox = styled.div`
 
 // WindowBox.tsx
 export const WindowBoxWrapper = styled.div`
-    width: 50vw; // 230px
+    width: 80%; // 230px
     max-width: 430px;
     height: 28%;
+
+    padding: 0 15%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     color: #FFF;
-    /* color: #000000; // 글씨 확인용 */
-    
-    border: 2px solid aquamarine;
 `
 export const Location = styled.div`
     width: 100%; // 230px
@@ -106,7 +102,7 @@ export const Location = styled.div`
     /* padding-top: 30%; */
     padding-bottom: 5px;
 
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 18px;
 
     img {
@@ -115,11 +111,7 @@ export const Location = styled.div`
         position: absolute;
         right: 0;
         transform: translate(0, 20%);
-
-        border: 1px solid fuchsia;
     }
-
-    border: 1px solid fuchsia;
 `
 export const Temperature = styled.div`
     /* width: 122px; */
@@ -130,20 +122,23 @@ export const Temperature = styled.div`
 
     padding: 8% 0 6% 0;
 
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 46px;
     font-weight: 600;
-
-    border: 1px solid fuchsia;
 `
 export const HighAndLow = styled.div`
-    font-family: Gmarket Sans; // 폰트 확정?
+    font-family: Gmarket Sans;
     font-size: 18px;
     font-weight: 600;
 
     /* padding-bottom: 18%; */
+`
+export const SeasonImg = styled.img`
+    /* background-image: url("/가을 창문.png"); */
 
-    border: 1px solid fuchsia;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
 `
 
 // ClothesBoxs.tsx
@@ -155,8 +150,6 @@ export const ClothesBoxsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
-    border: 2px solid aquamarine;
 `
 export const ClothesBox = styled.div`
     width: 28%; // 121px
@@ -176,7 +169,6 @@ export const ClothesBox = styled.div`
     }
     p {
         color: #F2A000;
-        font-family: Yeongdeok Sea; // 폰트 확정?
         font-size: 1rem; // 18px
         text-align: center;
         line-height: 140%;
@@ -190,8 +182,6 @@ export const NalaldolBoxWrapper = styled.div`
     height: 32%; // 300px
 
     position: relative;
-    
-    border: 2px solid aquamarine;
 `
 export const Nalaldol = styled.img`
     /* width: 64%; // 278px */
@@ -208,8 +198,6 @@ export const Nalaldol = styled.img`
     position: absolute;
     top: 0;
     right: 0;
-
-    border: 1px solid fuchsia;
 `
 export const SeasonBottom = styled.img`
     width: 95%;
@@ -217,8 +205,6 @@ export const SeasonBottom = styled.img`
     position: absolute;
     bottom: 0;
     right: 0;
-
-    border: 1px solid fuchsia;
 `
 export const Comment = styled.div`
     width: 32%; // 141px
@@ -233,7 +219,7 @@ export const Comment = styled.div`
     align-items: center;
 
     color: #1669B9;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 150%;
 
     background-image: url('/말풍선.png');
@@ -244,6 +230,4 @@ export const Comment = styled.div`
     p {
         transform: translate(0, -20%);
     }
-
-    border: 1px solid fuchsia;
 `
