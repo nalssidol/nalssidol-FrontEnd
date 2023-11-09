@@ -11,26 +11,14 @@ import { Autoplay } from 'swiper/modules';
 SwiperCore.use([Autoplay]);
 
 const SubSlider: React.FC = () => {
-    console.log(Autoplay);
-
-    // const swiperRef = useRef<Swiper | null>(null);
-
-    // useEffect(() => {
-    //     if (swiperRef.current) {
-    //         swiperRef.current.autoplay.paused = false;
-    //         swiperRef.current.autoplay.running = true;
-    //     }
-    // }, [])
 
   return (
     <>
         <S.SubSliderWrapper>
             <S.SubSliderBox>
                 <Swiper
-                    // ref={swiperRef}
                     slidesPerView={1}
                     loop={true}
-                    // autoplay={true}
                     autoplay={{
                         delay: 2000,
                         disableOnInteraction: false,
