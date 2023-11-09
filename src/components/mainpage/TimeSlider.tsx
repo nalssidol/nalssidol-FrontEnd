@@ -32,7 +32,6 @@ const TImeSlider = (props: Props) => {
           <Swiper
             spaceBetween={27}
             slidesPerView={4}
-            // direction='vertical'
           >
             {props.vilageData &&
               WeatherFilter(props.vilageData).map((time, index) => (
