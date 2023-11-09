@@ -49,7 +49,7 @@ const ClothesBoxs = ({ nowData, setDoldol }: Props) => {
             <img src="/Jacket.png" alt="외투" />
             <S.ClothesTitle>추천 외투</S.ClothesTitle>
             <div>
-              {outerList.map((data, index) => (
+              {outerList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
               {/* 트렌치 코트
@@ -61,7 +61,7 @@ const ClothesBoxs = ({ nowData, setDoldol }: Props) => {
             <img src="/Top.png" alt="상의" />
             <S.ClothesTitle>추천 상의</S.ClothesTitle>
             <div>
-              {topList.map((data, index) => (
+              {topList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
               {/* 긴팔티
@@ -73,7 +73,7 @@ const ClothesBoxs = ({ nowData, setDoldol }: Props) => {
             <img src="/Bottom.png" alt="하의" />
             <S.ClothesTitle>추천 하의</S.ClothesTitle>
             <div>
-              {pantsList.map((data, index) => (
+              {pantsList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
               {/* 스타킹
