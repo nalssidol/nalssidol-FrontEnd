@@ -10,8 +10,6 @@ export const TimeSliderWrapper = styled.div`
 
     display: flex;
     justify-content: center;
-
-    border: 2px solid aquamarine;
 `
 export const TimeSliderBox = styled.div`
     width: 95%; // 410px
@@ -42,8 +40,6 @@ export const TimeBox = styled.div`
     img {
         width: 100%;
     }
-    
-    /* border: 1px solid fuchsia; */
 `
 
 // SubSlider.tsx
@@ -63,8 +59,6 @@ export const SubSliderWrapper = styled.div`
         position: absolute;
         right: 7%;
     }
-    
-    border: 2px solid aquamarine;
 `
 export const SubSliderBox = styled.div`
     width: 66%; // 284px
@@ -90,9 +84,6 @@ export const WindowBoxWrapper = styled.div`
     justify-content: center;
 
     color: #FFF;
-    /* color: #000000; // 글씨 확인용 */
-    
-    border: 2px solid aquamarine;
 `
 export const Location = styled.div`
     width: 100%; // 230px
@@ -115,11 +106,7 @@ export const Location = styled.div`
         position: absolute;
         right: 0;
         transform: translate(0, 20%);
-
-        border: 1px solid fuchsia;
     }
-
-    border: 1px solid fuchsia;
 `
 export const Temperature = styled.div`
     /* width: 122px; */
@@ -133,8 +120,6 @@ export const Temperature = styled.div`
     font-family: Gmarket Sans; // 폰트 확정?
     font-size: 46px;
     font-weight: 600;
-
-    border: 1px solid fuchsia;
 `
 export const HighAndLow = styled.div`
     font-family: Gmarket Sans; // 폰트 확정?
@@ -142,8 +127,6 @@ export const HighAndLow = styled.div`
     font-weight: 600;
 
     /* padding-bottom: 18%; */
-
-    border: 1px solid fuchsia;
 `
 
 // ClothesBoxs.tsx
@@ -155,8 +138,6 @@ export const ClothesBoxsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    
-    border: 2px solid aquamarine;
 `
 export const ClothesBox = styled.div`
     width: 28%; // 121px
@@ -190,8 +171,6 @@ export const NalaldolBoxWrapper = styled.div`
     height: 32%; // 300px
 
     position: relative;
-    
-    border: 2px solid aquamarine;
 `
 export const Nalaldol = styled.img`
     /* width: 64%; // 278px */
@@ -208,8 +187,6 @@ export const Nalaldol = styled.img`
     position: absolute;
     top: 0;
     right: 0;
-
-    border: 1px solid fuchsia;
 `
 export const SeasonBottom = styled.img`
     width: 95%;
@@ -217,8 +194,6 @@ export const SeasonBottom = styled.img`
     position: absolute;
     bottom: 0;
     right: 0;
-
-    border: 1px solid fuchsia;
 `
 export const Comment = styled.div`
     width: 32%; // 141px
@@ -244,6 +219,4 @@ export const Comment = styled.div`
     p {
         transform: translate(0, -20%);
     }
-
-    border: 1px solid fuchsia;
 `
