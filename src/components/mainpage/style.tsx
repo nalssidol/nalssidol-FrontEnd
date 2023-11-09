@@ -74,16 +74,21 @@ export const SubSliderBox = styled.div`
 
 // WindowBox.tsx
 export const WindowBoxWrapper = styled.div`
-    width: 50vw; // 230px
+    width: 80%; // 230px
     max-width: 430px;
     height: 28%;
+
+    padding: 0 15%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     color: #FFF;
+
+    border: 1px solid blue;
 `
 export const Location = styled.div`
     width: 100%; // 230px
@@ -127,6 +132,15 @@ export const HighAndLow = styled.div`
     font-weight: 600;
 
     /* padding-bottom: 18%; */
+`
+export const SeasonImg = styled.img`
+    /* background-image: url("/가을 창문.png"); */
+
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+
+    border: 1px solid lightcoral;
 `
 
 // ClothesBoxs.tsx
