@@ -2,7 +2,7 @@ const Loading = () => {
   return (
     <div>
       <img
-        src="/loading.jpeg"
+        src="/apiLoading.png"
         alt="로딩 중이돌 .. 😎"
         style={{ height: "100vh" }}
       />

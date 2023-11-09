@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "./globalStyle";
-import { Provider } from "react-redux";
-import store from "./redux/store";
 
 const BackGroundColor = styled.div`
   width: 100vw;
@@ -35,14 +33,12 @@ const Wrapper = styled.div`
 const App: React.FC = () => {
   return (
     <>
-      <Provider store={store}>
-        <GlobalStyle />
-        <BackGroundColor>
-          <Wrapper>
-            <Outlet />
-          </Wrapper>
-        </BackGroundColor>
-      </Provider>
+      <GlobalStyle />
+      <BackGroundColor>
+        <Wrapper>
+          <Outlet />
+        </Wrapper>
+      </BackGroundColor>
     </>
   );
 };
