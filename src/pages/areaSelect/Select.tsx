@@ -4,14 +4,14 @@ import NowSelected from "../../components/select/NowSelected";
 import SelectAddress from "../../components/select/SelectAddress";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./style";
+import Loading from "../loading/Loading";
 
 const Select = () => {
   const navigate = useNavigate();
   const location = useLocation();
   // console.log(location.state);
 
-  //-------------------------------------------
-
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [city, setCity] = useState<string>(location.state.city);
   const [gu, setGu] = useState<string>(location.state.gu);
   const cityOnClick = (item: string) => {
@@ -25,32 +25,42 @@ const Select = () => {
   };
 
   const handleDataSet = async () => {
+    setIsLoading(true);
+
     API.get(`/api/location/?city=${city}&gu=${gu}`)
       .then((response) => {
         console.log(response.data);
         const location = response.data;
 
         navigate("/", { state: location });
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("API 요청 실패:", error);
+        setIsLoading(false);
       });
   };
 
   return (
     <S.SelectWrapper>
-      <NowSelected city={city} gu={gu} />
-      <S.SubWrapper>
-        <SelectAddress
-          city={city}
-          gu={gu}
-          cityOnClick={cityOnClick}
-          guOnClick={guOnClick}
-        />
-        <S.LocationBtn onClick={() => handleDataSet()}>
-          지역 설정하기
-        </S.LocationBtn>
-      </S.SubWrapper>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <NowSelected city={city} gu={gu} />
+          <S.SubWrapper>
+            <SelectAddress
+              city={city}
+              gu={gu}
+              cityOnClick={cityOnClick}
+              guOnClick={guOnClick}
+            />
+            <S.LocationBtn onClick={() => handleDataSet()}>
+              지역 설정하기
+            </S.LocationBtn>
+          </S.SubWrapper>
+        </>
+      )}
     </S.SelectWrapper>
   );
 };

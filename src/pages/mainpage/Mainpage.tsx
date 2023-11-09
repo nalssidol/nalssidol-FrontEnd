@@ -9,32 +9,24 @@ import WindowBox from "../../components/mainpage/WindowBox";
 import ClothesBoxs from "../../components/mainpage/ClothesBoxs";
 import NalaldolBox from "../../components/mainpage/NalaldolBox";
 import { ApiVilageFuture } from "../../model/apiModel";
-import { FormattedDate } from "../../utils/weatherInfo";
+import {
+  DefaultCity,
+  DefaultGu,
+  DefaultNx,
+  DefaultNy,
+  FormattedDate,
+} from "../../utils/weatherInfo";
+import Loading from "../loading/Loading";
 
 const Mainpage: React.FC = () => {
   const location = useLocation();
   console.log(location.state);
 
-  const defaultNx = (): number => {
-    if (location.state && typeof location.state.nx === "number") {
-      return location.state.nx;
-    } else {
-      return 55; // Default value
-    }
-  };
-
-  const defaultNy = (): number => {
-    if (location.state && typeof location.state.ny === "number") {
-      return location.state.ny;
-    } else {
-      return 127; // Default value
-    }
-  };
-
-  const [nx, setNx] = useState<number>(defaultNx());
-  const [ny, setNy] = useState<number>(defaultNy());
-  const [city, setCity] = useState<string>("서울특별시");
-  const [gu, setGu] = useState<string>("중구");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [nx, setNx] = useState<number>(DefaultNx(location.state));
+  const [ny, setNy] = useState<number>(DefaultNy(location.state));
+  const city: string = DefaultCity(location.state);
+  const gu: string = DefaultGu(location.state);
   const [vilageData, setVilageData] = useState<ApiVilageFuture[]>([]); //단기 -> 강수확률 풍속 시간대별날씨 최고최저기온
 
   useEffect(() => {
@@ -65,21 +57,27 @@ const Mainpage: React.FC = () => {
       // 아래는 수정 예정
       setNx(item[0].nx);
       setNy(item[0].ny);
-      setCity("서울특별시");
-      setGu("중구");
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
+      setIsLoading(false);
     }
   };
 
   return (
     <>
       <S.MainpageWrapper>
-        <TImeSlider vilageData={vilageData} />
-        <SubSlider />
-        <WindowBox vilageData={vilageData} city={city} gu={gu} />
-        <ClothesBoxs />
-        <NalaldolBox vilageData={vilageData} />
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <>
+            <TImeSlider vilageData={vilageData} />
+            <SubSlider />
+            <WindowBox vilageData={vilageData} city={city} gu={gu} />
+            <ClothesBoxs />
+            <NalaldolBox vilageData={vilageData} />
+          </>
+        )}
       </S.MainpageWrapper>
     </>
   );
