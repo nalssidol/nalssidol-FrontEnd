@@ -69,6 +69,7 @@ const TImeSlider = (props: Props) => {
   
   // 현재시간으로 슬라이드 이동
   const nowSlide = props.vilageData.findIndex(time => time.fcstTime === Now);
+  const initialSlide = nowSlide >= 0 ? nowSlide : 0;
 
   return (
     <>
@@ -77,7 +78,7 @@ const TImeSlider = (props: Props) => {
           <Swiper
             spaceBetween={27}
             slidesPerView={4}
-            initialSlide={nowSlide >= 0 ? nowSlide : 0}
+            initialSlide={initialSlide}
           >
             {props.vilageData &&
               WeatherFilter(props.vilageData).map((time, index) => (
