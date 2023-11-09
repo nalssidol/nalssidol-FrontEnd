@@ -1,5 +1,6 @@
 import * as S from "./styled";
 import Address from "../../data/address_data.json";
+import { useState } from "react";
 
 type Props = {
   city: string;
@@ -10,12 +11,17 @@ type Props = {
 
 const SelectAddress = (props: Props) => {
   const address = Address;
-  // 중복된 si 값을 제거하여 유니크한 si 배열 생성
   const uniqueSiValues = [...new Set(address.map((item) => item.si))];
+
+  const [selectedCity, setSelectedCity] = useState("지역명 선택");
+  const [selectedGu, setSelectedGu] = useState("");
 
   return (
     <S.SelectAddressWrap>
-      <S.SelectBar>지역명 선택</S.SelectBar>
+      <S.SelectBar>
+        {selectedCity} {selectedGu}{" "}
+        <S.DropDown src="/select/dropdown.png" alt="" />
+      </S.SelectBar>
       <S.SelectWrapper>
         <S.CitySection>
           <S.CityText>시/도</S.CityText>
@@ -25,7 +31,11 @@ const SelectAddress = (props: Props) => {
               key={index}
               bgcolor={props.city === data ? "#F1A000" : "#fff"}
               fontcolor={props.city === data ? "#fff" : ""}
-              onClick={() => props.cityOnClick(data)}
+              onClick={() => {
+                props.cityOnClick(data);
+                setSelectedCity(data);
+                setSelectedGu("");
+              }}
             >
               {data}
             </S.CityContext>
@@ -41,7 +51,10 @@ const SelectAddress = (props: Props) => {
                 key={index}
                 bgcolor={props.gu === data.gu ? "#F1A000" : "#fff"}
                 fontcolor={props.gu === data.gu ? "#fff" : ""}
-                onClick={() => props.guOnClick(data.gu)}
+                onClick={() => {
+                  props.guOnClick(data.gu);
+                  setSelectedGu(data.gu);
+                }}
               >
                 {data.gu}
               </S.GuContext>

@@ -8,38 +8,50 @@ import SubSlider from "../../components/mainpage/SubSlider";
 import WindowBox from "../../components/mainpage/WindowBox";
 import ClothesBoxs from "../../components/mainpage/ClothesBoxs";
 import NalaldolBox from "../../components/mainpage/NalaldolBox";
-import { ApiVilageFuture } from "../../model/apiModel";
+import {
+  ApiNowModel,
+  ApiVilageFuture,
+  DefaultNowModel,
+} from "../../model/apiModel";
 import {
   DefaultCity,
   DefaultGu,
   DefaultNx,
   DefaultNy,
   FormattedDate,
+  FormattedNowDate,
+  formattedTime,
 } from "../../utils/weatherInfo";
 import Loading from "../loading/Loading";
 
 const Mainpage: React.FC = () => {
   const location = useLocation();
-  console.log(location.state);
+
+  const city: string = DefaultCity(location.state);
+  const gu: string = DefaultGu(location.state);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [nx, setNx] = useState<number>(DefaultNx(location.state));
   const [ny, setNy] = useState<number>(DefaultNy(location.state));
-  const city: string = DefaultCity(location.state);
-  const gu: string = DefaultGu(location.state);
-  const [vilageData, setVilageData] = useState<ApiVilageFuture[]>([]); //단기 -> 강수확률 풍속 시간대별날씨 최고최저기온
+  const [vilageData, setVilageData] = useState<ApiVilageFuture[]>([]);
+  const [nowData, setNowData] = useState<ApiNowModel | undefined>();
+  const [doldol, setDoldol] = useState<string>("");
+
+  console.log("nx: " + nx + " ny: " + ny + " city: " + city + " gu: " + gu);
 
   useEffect(() => {
-    fetchData();
-  }, [nx, ny]);
+    fetchFutureData();
+    fetchUltraNow();
+  }, []);
 
-  // 함수 정의 -------------------------------------------------
-  const instance = axios.create({
+  // axios instance 정의 -------------------------------------------------
+  // 단기예보 오픈 API
+  const futureInstance = axios.create({
     baseURL: "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/",
     params: {
       ServiceKey: import.meta.env.VITE_APP_WEARTHER_API_KEY,
       pageNo: "1",
-      numOfRows: "288", // 12개 col * 24시간
+      numOfRows: "288",
       dataType: "JSON",
       base_date: FormattedDate,
       base_time: "2300",
@@ -47,20 +59,56 @@ const Mainpage: React.FC = () => {
       ny: ny.toString(),
     },
   });
+  // 초단기실황 오픈 API
+  const nowInstance = axios.create({
+    baseURL: "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/",
+    params: {
+      ServiceKey: import.meta.env.VITE_APP_WEARTHER_API_KEY,
+      pageNo: "1",
+      numOfRows: "5",
+      dataType: "JSON",
+      base_date: FormattedNowDate,
+      base_time: formattedTime,
+      nx: nx.toString(),
+      ny: ny.toString(),
+    },
+  });
 
-  const fetchData = async () => {
+  // axios fetch 함수 정의 -------------------------------------------------
+  // 단기예보 오픈 API
+  const fetchFutureData = async () => {
     try {
-      const response = await instance.get(requests.fetchVilageFuture);
+      const response = await futureInstance.get(requests.fetchVilageFuture);
       const { item } = response.data.response.body.items;
-
+      console.log(
+        item.filter((filteredData: any) => filteredData.category === "TMN")
+      );
+      console.log(
+        item.filter((filteredData: any) => filteredData.category === "TMX")
+      );
       setVilageData(item);
-      // 아래는 수정 예정
       setNx(item[0].nx);
       setNy(item[0].ny);
       setIsLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
       setIsLoading(false);
+    }
+  };
+
+  // 초단기실황 오픈 API
+  const fetchUltraNow = async () => {
+    try {
+      const response = await nowInstance.get(requests.fetchUltraNow);
+      const { item } = response.data.response.body.items;
+      const realtimeData = item.find(
+        (res: ApiNowModel) => res.category === "T1H"
+      );
+      console.log(realtimeData);
+
+      setNowData(realtimeData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
     }
   };
 
@@ -72,10 +120,18 @@ const Mainpage: React.FC = () => {
         ) : (
           <>
             <TImeSlider vilageData={vilageData} />
-            <SubSlider />
-            <WindowBox vilageData={vilageData} city={city} gu={gu} />
-            <ClothesBoxs />
-            <NalaldolBox vilageData={vilageData} />
+            <SubSlider vilageData={vilageData} />
+            <WindowBox
+              vilageData={vilageData}
+              nowData={nowData === undefined ? DefaultNowModel : nowData}
+              city={city}
+              gu={gu}
+            />
+            <ClothesBoxs
+              nowData={nowData === undefined ? DefaultNowModel : nowData}
+              setDoldol={setDoldol}
+            />
+            <NalaldolBox vilageData={vilageData} doldol={doldol} />
           </>
         )}
       </S.MainpageWrapper>
