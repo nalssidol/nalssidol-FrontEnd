@@ -69,7 +69,10 @@ const TImeSlider = (props: Props) => {
   
   // 현재시간으로 슬라이드 이동
   const nowSlide = props.vilageData.findIndex(time => time.fcstTime === Now);
+  console.log(nowSlide);  
   const initialSlide = nowSlide >= 0 ? nowSlide : 0;
+  console.log(initialSlide);
+  
 
   return (
     <>
