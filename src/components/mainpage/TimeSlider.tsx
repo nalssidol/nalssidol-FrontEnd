@@ -1,4 +1,5 @@
 import * as S from "./style";
+import "../../style/styles.css"
 import { WeatherFilter } from "../../utils/weatherIcon";
 import { ApiVilageFuture, DataType } from "../../model/apiModel";
 
@@ -37,7 +38,7 @@ const TImeSlider = (props: Props) => {
               WeatherFilter(props.vilageData).map((time, index) => (
                 <SwiperSlide key={index}>
                   <S.TimeBox>
-                    <p className="yeongdeok">{time.fcstTime}</p>
+                    <p>{time.fcstTime}</p>
                     <img
                       src={
                         time.type === "SKY"

@@ -1,6 +1,7 @@
 import * as S from "./style";
 import { ApiVilageFuture } from "../../model/apiModel";
 import { IsDoldolComent } from "../../utils/weatherInfo";
+import "../../style/styles.css"
 
 type Props = {
   vilageData: ApiVilageFuture[];
