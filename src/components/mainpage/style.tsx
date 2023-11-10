@@ -54,7 +54,7 @@ export const TimeBox = styled.div`
 export const SubSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 5%;
+  height: 40px; //5%;
 
   margin-top: 10px;
 
@@ -131,7 +131,7 @@ export const Location = styled.div`
     font-size: 0.9rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 18px
+    font-size: 1.1rem; // 18px
   }
 
   z-index: 1;
@@ -153,10 +153,10 @@ export const Temperature = styled.div`
   font-weight: 600;
   font-size: 3rem; //46px;
   @media (max-width: 430px) {
-    font-size: 3rem; // 46px
+    font-size: 2.9rem; // 46px
   }
   @media (min-width: 390px) {
-    font-size: 3.3rem; // 46px
+    font-size: 3.2rem; // 46px
   }
 
   z-index: 1;
@@ -169,7 +169,7 @@ export const HighAndLow = styled.div`
     font-size: 0.9rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 18px
+    font-size: 1.1rem; // 18px
   }
 
   z-index: 1;
