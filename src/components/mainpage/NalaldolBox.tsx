@@ -42,6 +42,7 @@ const NalaldolBox = (props: Props) => {
       <S.NalaldolBoxWrapper>
         <S.Nalaldol src={props.doldol} alt="날알돌" />
         <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
+        {/* <S.SeasonBottom src="/봄 아래.png" alt="계절 아래" /> */}
         <S.Comment>{IsDoldolComent(props.vilageData)}</S.Comment>
       </S.NalaldolBoxWrapper>
     </>

@@ -83,6 +83,7 @@ const WindowBox = (props: Props) => {
         </S.HighAndLow>
 
         <S.SeasonImg src={SeasonImg} alt="배경이미지" />
+        {/* <S.SeasonImg src="봄 창문.png" alt="배경이미지" /> */}
       </S.WindowBoxWrapper>
     </>
   );
