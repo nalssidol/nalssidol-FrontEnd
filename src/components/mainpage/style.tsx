@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 export const TimeSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 90px; //10%
+  height: 10%;
 
   margin-top: 5%; // 50px 12%
 
@@ -99,7 +99,7 @@ export const SliderText = styled.p`
 
 // WindowBox.tsx
 export const WindowBoxWrapper = styled.div`
-  width: 80%; // 230px
+  width: 74%; // 230px
   max-width: 430px;
 
   padding: 0 15%;
