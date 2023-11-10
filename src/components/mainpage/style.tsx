@@ -230,12 +230,11 @@ export const ClothesBox = styled.div`
   }
 `;
 export const ClothesTitle = styled.p`
-  margin-bottom: 5px;
   color: #f2a000;
   text-align: center;
 `;
 export const ClothesTextLabel = styled.div`
-  height: 40%;
+  height: 44%;
 `;
 export const ClothesText = styled.p`
   color: #322300;
@@ -258,7 +257,7 @@ export const Nalaldol = styled.img`
   }
   @media (min-width: 390px) {
     /* width: 64%; */
-    width: 72%;
+    width: 68%;
   }
 
   position: absolute;
