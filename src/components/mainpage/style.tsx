@@ -252,11 +252,12 @@ export const NalaldolBoxWrapper = styled.div`
 `;
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
-    width: 200px;
+    width: 230px;
+    /* width: 200px */
   }
   @media (min-width: 390px) {
     /* width: 64%; */
-    width: 68%;
+    width: 72%;
   }
 
   position: absolute;
