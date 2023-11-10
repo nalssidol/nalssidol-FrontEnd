@@ -249,22 +249,33 @@ export const NalaldolBoxWrapper = styled.div`
   height: 38%; // 300px
 
   position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  padding-top: 8%;
+
+  border: 1px solid orange;
 `;
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
     width: 200px;
+    height: 200px;
   }
   @media (min-width: 390px) {
-    /* width: 64%; */
     width: 68%;
+    height: auto;
   }
 
-  position: absolute;
+  /* position: absolute;
   bottom: 8%;
-  right: 0;
+  right: 0; */
+
+  border: 1px solid orange;
 `;
 export const SeasonBottom = styled.img`
-  width: 95%;
+  width: 90%;
 
   position: absolute;
   bottom: 0;
@@ -274,9 +285,9 @@ export const Comment = styled.div`
   width: 32%; // 141px
   height: 38%; // 113px
 
-  position: absolute;
+  /* position: absolute;
   bottom: 52%; // 156px
-  left: 4%; // 18px
+  left: 4%;  */
 
   display: flex;
   justify-content: center;
@@ -303,4 +314,6 @@ export const Comment = styled.div`
   p {
     transform: translate(0, -20%);
   }
+
+  border: 1px solid orange;
 `;
