@@ -230,11 +230,12 @@ export const ClothesBox = styled.div`
   }
 `;
 export const ClothesTitle = styled.p`
+  margin-bottom: 5px;
   color: #f2a000;
   text-align: center;
 `;
 export const ClothesTextLabel = styled.div`
-  height: 44%;
+  height: 40%;
 `;
 export const ClothesText = styled.p`
   color: #322300;
