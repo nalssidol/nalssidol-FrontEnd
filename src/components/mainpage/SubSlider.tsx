@@ -8,6 +8,7 @@ import SwiperCore from "swiper";
 import { Autoplay } from "swiper/modules";
 
 import { ApiVilageFuture } from "../../model/apiModel";
+import { useRef } from "react";
 
 SwiperCore.use([Autoplay]);
 
@@ -38,9 +39,59 @@ const SubSlider = ({ vilageData }: Props) => {
   };
   console.log("subSlider data- wind: " + wind() + " / rain: " + rainPercent);
 
+
+  // 링크복사 ------------------------------------
+  const LinkRef = useRef<HTMLTextAreaElement>(null);
+
+  const handleCopyLink = () => {
+    const textArea = LinkRef.current;
+
+    if (textArea) {
+      const currentURL = textArea.value;
+
+      textArea.value = "http://" + currentURL;
+
+      textArea.select();
+      textArea.setSelectionRange(0, 99999);
+      document.execCommand("copy");
+      textArea.setSelectionRange(0, 0);
+
+      // 복사가 완료되면 원래의 주소로 다시 변경합니다.
+      textArea.value = currentURL;
+
+      alert("클립보드에 주소가 복사되었습니다.");
+    }
+  //   const currentURL = textArea.value;
+
+  //   // 항상 "http://"를 주소 앞에 추가합니다.
+  //   textArea.value = "http://" + currentURL;
+
+  //   textArea.select();
+  //   textArea.setSelectionRange(0, 99999);
+  //   document.execCommand("copy");
+  //   textArea.setSelectionRange(0, 0);
+
+  //   // 복사가 완료되면 원래의 주소로 다시 변경합니다.
+  //   textArea.value = currentURL;
+
+  //   alert("클립보드에 주소가 복사되었습니다.");
+
+  //   // 복사 이벤트 추적
+  //   gtag("event", "copy_link", {
+  //     event_category: "copy_link"
+  //   });
+  };
+
+  
+
   return (
     <>
       <S.SubSliderWrapper>
+      <textarea
+        ref={LinkRef}
+        value={`nalssidol.site`}
+        style={{ position: "fixed", top: "-123px" }}
+      />
         <S.SubSliderBox>
           <Swiper
             slidesPerView={1}
@@ -62,7 +113,7 @@ const SubSlider = ({ vilageData }: Props) => {
             </SwiperSlide>
           </Swiper>
         </S.SubSliderBox>
-        <img src="/share.png" alt="공유" />
+        <img src="/share.png" alt="공유" onClick={handleCopyLink} />
       </S.SubSliderWrapper>
     </>
   );
