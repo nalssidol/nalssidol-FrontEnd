@@ -13,7 +13,7 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   ) {
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        🌧️비 올 예정이돌🌧️
+        비 올 예정이돌🌧️
         <br />
         우산을 챙겨가돌!😎
       </p>
@@ -26,7 +26,7 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   ) {
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        ❄️눈 올 예정이돌❄️
+        눈 올 예정이돌❄️
         <br />
         우산을 챙겨가돌!😎
       </p>
@@ -34,23 +34,34 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   } else
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        ☀️날씨가 맑돌☀️ <br /> 외출하자돌!😎
+        날씨가 맑돌☀️ <br /> 외출하자돌!😎
       </p>
     );
   return doldolComent;
 };
 
-const today = new Date();
-const year = String(today.getFullYear());
-const month = String(today.getMonth() + 1).padStart(2, "0");
-const day = String(today.getDate() - 1).padStart(2, "0"); // 전일 날짜
-const nowDay = String(today.getDate()).padStart(2, "0"); // 현재 날짜
-const hours = String(today.getHours()).padStart(2, "0"); // 현재 시간
-const minutes = String(today.getMinutes()).padStart(2, "0"); // 현재 분
+const today: Date = new Date();
+const year: string = String(today.getFullYear());
+const month: string = String(today.getMonth() + 1).padStart(2, "0");
+const day: string = String(today.getDate() - 1).padStart(2, "0"); // 전일 날짜
+const nowDay: string = String(today.getDate()).padStart(2, "0"); // 현재 날짜
+
+let hours: number = today.getHours();
+let minutes: number = today.getMinutes();
+
+if (minutes < 25) {
+  hours -= 1;
+  minutes = 59;
+}
+
+const formattedTime: string = `${String(hours).padStart(2, "0")}${String(
+  minutes
+).padStart(2, "0")}`;
 
 export const FormattedDate: string = `${year}${month}${day}`;
 export const FormattedNowDate: string = `${year}${month}${nowDay}`;
-export const formattedTime: string = `${hours}${minutes}`;
+export const FormattedTime: string = formattedTime;
+// export const formattedTime: string = `${hours}${minutes}`;
 
 type defaultType = {
   nx: number;
