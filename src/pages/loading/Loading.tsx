@@ -3,7 +3,7 @@ const Loading = () => {
     <div>
       {/* <div style={{ position: "relative" }}> */}
       <img
-        src="/apiLoading.png"
+        src="/loading2.png"
         alt="로딩 중이돌 .. 😎"
         style={{
           width: "100%",
