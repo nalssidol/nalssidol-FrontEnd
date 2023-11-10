@@ -4,9 +4,8 @@ import styled, { keyframes } from "styled-components";
 export const TimeSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 10%;
 
-  margin-top: 5%; // 50px 12%
+  margin-top: 4%; // 50px 12%
 
   display: flex;
   justify-content: center;
@@ -16,9 +15,11 @@ export const TimeSliderWrapper = styled.div`
 
   @media (max-width: 430px) {
     font-size: 0.8rem; // 16px
+    height: 70px; //10%;
   }
   @media (min-width: 390px) {
-    font-size: 1rem; // 16px
+    font-size: 0.9rem; // 16px
+    height: 84px; //10%;
   }
 `;
 export const TimeSliderBox = styled.div`
@@ -66,7 +67,7 @@ export const SubSliderWrapper = styled.div`
     font-size: 0.9rem; // 20px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 20px
+    font-size: 1rem; // 20px
   }
 
   img {
@@ -207,7 +208,7 @@ export const ClothesBoxsWrapper = styled.div`
     font-size: 0.9rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.1rem; // 18px
+    font-size: 1rem; // 18px
   }
 `;
 export const ClothesBox = styled.div`
@@ -269,14 +270,14 @@ const jumpDoldol = keyframes`
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
   }
   @media (min-width: 390px) {
-    width: 68%;
-    height: auto;
+    width: 180px;
     object-fit: contain;
+    /* width: 68%;
+    height: auto; */
   }
-
 
   /* position: absolute;
   bottom: 8%;
@@ -313,7 +314,7 @@ export const Comment = styled.div`
     font-size: 0.8rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.1rem; // 18px
+    font-size: 0.9rem; // 18px
   }
 
   background-image: url("/말풍선.png");
