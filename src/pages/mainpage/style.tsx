@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const MainpageWrapper = styled.div`
   /* border: 1px solid red; */
 
-  width: 100vw;
-  height: 100vh;
-  max-width: 430px;
-  min-width: 320px;
-  /* min-height: 100vh; */
+    max-width: 430px;
+    min-width: 320px;
+    /* min-height: 100vh; */
+    width: 100vw;
+    height: 100vh;
 
   display: flex;
   flex-direction: column;
