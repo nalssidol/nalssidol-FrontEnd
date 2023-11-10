@@ -38,7 +38,7 @@ const Mainpage: React.FC = () => {
   const [nowData, setNowData] = useState<ApiNowModel | undefined>();
   const [doldol, setDoldol] = useState<string>("");
 
-  console.log("nx: " + nx + " ny: " + ny + " city: " + city + " gu: " + gu);
+  // console.log("nx: " + nx + " ny: " + ny + " city: " + city + " gu: " + gu);
 
   useEffect(() => {
     fetchFutureData();
@@ -81,12 +81,7 @@ const Mainpage: React.FC = () => {
     try {
       const response = await futureInstance.get(requests.fetchVilageFuture);
       const { item } = response.data.response.body.items;
-      console.log(
-        item.filter((filteredData: any) => filteredData.category === "TMN")
-      );
-      console.log(
-        item.filter((filteredData: any) => filteredData.category === "TMX")
-      );
+
       setVilageData(item);
       setNx(item[0].nx);
       setNy(item[0].ny);
@@ -105,7 +100,6 @@ const Mainpage: React.FC = () => {
       const realtimeData = item.find(
         (res: ApiNowModel) => res.category === "T1H"
       );
-      console.log(realtimeData);
 
       setNowData(realtimeData);
     } catch (error) {

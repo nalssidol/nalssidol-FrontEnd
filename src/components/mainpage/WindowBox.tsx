@@ -12,14 +12,31 @@ type Props = {
 
 const WindowBox = (props: Props) => {
   const navigate = useNavigate();
-  const min =
-    props.vilageData.length > 0
-      ? props.vilageData.filter((item) => item.category === "TMN")[0].fcstValue
-      : "0";
-  const max =
-    props.vilageData.length > 0
-      ? props.vilageData.filter((item) => item.category === "TMX")[0].fcstValue
-      : "0";
+
+  const allTemperature: ApiVilageFuture[] = props.vilageData.filter(
+    (data: ApiVilageFuture) => data.category === "TMP"
+  );
+
+  const minTemperature: number =
+    allTemperature.length > 0
+      ? Math.min(...allTemperature.map((item) => parseInt(item.fcstValue)))
+      : 0;
+  const maxTemperature: number =
+    allTemperature.length > 0
+      ? Math.max(...allTemperature.map((item) => parseInt(item.fcstValue)))
+      : 0;
+
+  console.log("가장 낮은 온도:", minTemperature);
+  console.log("가장 높은 온도:", maxTemperature);
+
+  // const min =
+  //   props.vilageData.length > 0
+  //     ? props.vilageData.filter((item) => item.category === "TMN")[0].fcstValue
+  //     : "0";
+  // const max =
+  //   props.vilageData.length > 0
+  //     ? props.vilageData.filter((item) => item.category === "TMX")[0].fcstValue
+  //     : "0";
   // console.log(min, max);
 
   // 창문 밖 계절이미지
@@ -58,12 +75,11 @@ const WindowBox = (props: Props) => {
           {props.city} {props.gu}
           <img src="/search.png" alt="검색" />
         </S.Location>
-        {/* <S.Temperature>15 ℃</S.Temperature> */}
         <S.Temperature>
           {props.nowData && parseInt(props.nowData.obsrValue)}℃
         </S.Temperature>
         <S.HighAndLow>
-          최고 {parseInt(max)}℃ | 최저 {parseInt(min)}℃
+          최고 {maxTemperature}℃ | 최저 {minTemperature}℃
         </S.HighAndLow>
 
         <S.SeasonImg src={SeasonImg} alt="배경이미지" />
