@@ -45,14 +45,14 @@ const Select = () => {
     const encodedCity = encodeURIComponent(city);
     const encodedGu = encodeURIComponent(gu);
 
-    const url = `http://127.0.0.1:8000/api/location/?city=${encodedCity}&gu=${encodedGu}`;
+    const url = `/api/location/?city=${encodedCity}&gu=${encodedGu}`;
     console.log(url);
     
     const decodedUrl = decodeURIComponent(url);
     console.log(decodedUrl);
     
 
-    API.get(`/api/location/?city=${encodedCity}&gu=${encodedGu}`)
+    API.get(decodedUrl)
       .then((response) => {
         console.log(response.data);
         const location = response.data;
