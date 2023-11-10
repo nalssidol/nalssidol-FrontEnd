@@ -230,12 +230,11 @@ export const ClothesBox = styled.div`
   }
 `;
 export const ClothesTitle = styled.p`
-  margin-bottom: 5px;
   color: #f2a000;
   text-align: center;
 `;
 export const ClothesTextLabel = styled.div`
-  height: 40%;
+  height: 44%;
 `;
 export const ClothesText = styled.p`
   color: #322300;
@@ -252,19 +251,16 @@ export const NalaldolBoxWrapper = styled.div`
   position: relative;
 `;
 export const Nalaldol = styled.img`
-  /* width: 64%; // 278px */
-  max-width: 278px;
-  /* height: 278px; */
-
-  @media (max-height: 700px) {
+  @media (max-width: 430px) {
     width: 200px;
   }
-  @media (min-height: 500px) {
-    width: 64%;
+  @media (min-width: 390px) {
+    /* width: 64%; */
+    width: 68%;
   }
 
   position: absolute;
-  top: 0;
+  bottom: 8%;
   right: 0;
 `;
 export const SeasonBottom = styled.img`
