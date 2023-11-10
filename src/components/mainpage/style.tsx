@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 export const TimeSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 10%;
+  height: 90px; //10%
 
   margin-top: 5%; // 50px 12%
 
@@ -254,8 +254,6 @@ export const NalaldolBoxWrapper = styled.div`
   justify-content: center;
 
   padding-top: 8%;
-
-  border: 1px solid orange;
 `;
 const jumpDoldol = keyframes`
   0% {
@@ -326,6 +324,4 @@ export const Comment = styled.div`
   p {
     transform: translate(0, -20%);
   }
-
-  border: 1px solid orange;
 `;
