@@ -266,7 +266,9 @@ export const Nalaldol = styled.img`
   @media (min-width: 390px) {
     width: 68%;
     height: auto;
+    object-fit: contain;
   }
+
 
   /* position: absolute;
   bottom: 8%;
