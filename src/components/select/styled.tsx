@@ -77,10 +77,6 @@ export const SelectWrapper = styled.div`
   border: 1px solid #919191;
   background: #fff;
   margin-top: 15px;
-
-  overflow-y: scroll;
-  -ms-overflow-style: none; /* 인터넷 익스플로러 */
-  scrollbar-width: none; /* 파이어폭스 */
 `;
 export const CitySection = styled.div`
   width: 40%;
@@ -95,6 +91,12 @@ export const CitySection = styled.div`
 `;
 export const GuSection = styled(CitySection)`
   width: 60%;
+`;
+export const CityScroll = styled.div`
+  height: 500px;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* 인터넷 익스플로러 */
+  scrollbar-width: none; /* 파이어폭스 */
 `;
 export const CityText = styled.div`
   display: flex;

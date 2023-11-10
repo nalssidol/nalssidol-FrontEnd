@@ -7,7 +7,7 @@ export const SelectWrapper = styled.div`
 
   background: #fef7db;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
 `;
 export const SubWrapper = styled.div`
   display: flex;

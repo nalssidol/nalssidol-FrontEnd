@@ -26,39 +26,43 @@ const SelectAddress = (props: Props) => {
         <S.CitySection>
           <S.CityText>시/도</S.CityText>
           <S.UnderLine />
-          {uniqueSiValues.map((data, index) => (
-            <S.CityContext
-              key={index}
-              bgcolor={props.city === data ? "#F1A000" : "#fff"}
-              fontcolor={props.city === data ? "#fff" : ""}
-              onClick={() => {
-                props.cityOnClick(data);
-                setSelectedCity(data);
-                setSelectedGu("");
-              }}
-            >
-              {data}
-            </S.CityContext>
-          ))}
+          <S.CityScroll>
+            {uniqueSiValues.map((data, index) => (
+              <S.CityContext
+                key={index}
+                bgcolor={props.city === data ? "#F1A000" : "#fff"}
+                fontcolor={props.city === data ? "#fff" : ""}
+                onClick={() => {
+                  props.cityOnClick(data);
+                  setSelectedCity(data);
+                  setSelectedGu("");
+                }}
+              >
+                {data}
+              </S.CityContext>
+            ))}
+          </S.CityScroll>
         </S.CitySection>
         <S.GuSection>
           <S.CityText>구/군</S.CityText>
           <S.UnderLine />
-          {address
-            .filter((data) => data.si === props.city)
-            .map((data, index) => (
-              <S.GuContext
-                key={index}
-                bgcolor={props.gu === data.gu ? "#F1A000" : "#fff"}
-                fontcolor={props.gu === data.gu ? "#fff" : ""}
-                onClick={() => {
-                  props.guOnClick(data.gu);
-                  setSelectedGu(data.gu);
-                }}
-              >
-                {data.gu}
-              </S.GuContext>
-            ))}
+          <S.CityScroll>
+            {address
+              .filter((data) => data.si === props.city)
+              .map((data, index) => (
+                <S.GuContext
+                  key={index}
+                  bgcolor={props.gu === data.gu ? "#F1A000" : "#fff"}
+                  fontcolor={props.gu === data.gu ? "#fff" : ""}
+                  onClick={() => {
+                    props.guOnClick(data.gu);
+                    setSelectedGu(data.gu);
+                  }}
+                >
+                  {data.gu}
+                </S.GuContext>
+              ))}
+          </S.CityScroll>
         </S.GuSection>
       </S.SelectWrapper>
     </S.SelectAddressWrap>
