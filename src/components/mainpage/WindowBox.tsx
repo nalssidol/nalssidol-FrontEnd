@@ -49,21 +49,21 @@ const WindowBox = (props: Props) => {
   }
 
   const MonthToSeason: MonthToSeasonMap = {
-    1: "/겨울 창문.png",
-    2: "/겨울 창문.png",
-    3: "/봄 창문.png",
-    4: "/봄 창문.png",
-    5: "/봄 창문.png",
-    6: "/여름 창문.png",
-    7: "/여름 창문.png",
-    8: "/여름 창문.png",
-    9: "/가을 창문.png",
-    10: "/가을 창문.png",
-    11: "/가을 창문.png",
-    12: "/겨울 창문.png",
+    1: "/winter.png", //"/겨울 창문.png",
+    2: "/winter.png", //"/겨울 창문.png",
+    3: "/spring.png", //"/봄 창문.png",
+    4: "/spring.png", //"/봄 창문.png",
+    5: "/spring.png", //"/봄 창문.png",
+    6: "/summer.png", //"/여름 창문.png",
+    7: "/summer.png", //"/여름 창문.png",
+    8: "/summer.png", //"/여름 창문.png",
+    9: "/autumn.png", //"/가을 창문.png",
+    10: "/autumn.png", //"/가을 창문.png",
+    11: "/autumn.png", //"/가을 창문.png",
+    12: "/winter.png", //"/겨울 창문.png",
   };
   const getSeasonImg = (monthNum: number): string => {
-    return MonthToSeason[monthNum] || "/가을 창문.png";
+    return MonthToSeason[monthNum] || "/autumn.png";
   };
   const SeasonImg: string = getSeasonImg(month);
 
@@ -71,7 +71,6 @@ const WindowBox = (props: Props) => {
     <>
       <S.WindowBoxWrapper>
         <S.Location onClick={() => navigate("select", { state: props })}>
-          {/* 서울특별시 용산구 */}
           {props.city} {props.gu}
           <img src="/search.png" alt="검색" />
         </S.Location>
@@ -82,8 +81,9 @@ const WindowBox = (props: Props) => {
           최고 {maxTemperature}℃ | 최저 {minTemperature}℃
         </S.HighAndLow>
 
-        <S.SeasonImg src={SeasonImg} alt="배경이미지" />
-        {/* <S.SeasonImg src="봄 창문.png" alt="배경이미지" /> */}
+        <S.SeasonImg>
+          <img src={SeasonImg} alt="배경이미지" />
+        </S.SeasonImg>
       </S.WindowBoxWrapper>
     </>
   );

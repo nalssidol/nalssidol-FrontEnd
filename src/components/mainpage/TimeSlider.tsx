@@ -1,5 +1,5 @@
 import * as S from "./style";
-import "../../style/styles.css"
+import "../../style/styles.css";
 import { WeatherFilter } from "../../utils/weatherIcon";
 import { ApiVilageFuture, DataType } from "../../model/apiModel";
 
@@ -34,7 +34,7 @@ const TImeSlider = (props: Props) => {
   interface HoursToTimeMap {
     [key: number]: string;
   }
-  
+
   const HoursToTime: HoursToTimeMap = {
     0: "오전 12시",
     1: "오전 1시",
@@ -60,22 +60,18 @@ const TImeSlider = (props: Props) => {
     21: "오후 9시",
     22: "오후 10시",
     23: "오후 11시",
-  }
+  };
   const getCurrentTime = (currentTime: number): string => {
     return HoursToTime[currentTime] || "오전 9시";
-  }
+  };
   const Now: string = getCurrentTime(time);
-  console.log(Now);  
+  console.log(Now);
 
   return (
     <>
       <S.TimeSliderWrapper>
         <S.TimeSliderBox>
-          <Swiper
-            spaceBetween={27}
-            slidesPerView={4}
-            initialSlide={time}
-          >
+          <Swiper spaceBetween={27} slidesPerView={4} initialSlide={time}>
             {props.vilageData &&
               WeatherFilter(props.vilageData).map((time, index) => (
                 <SwiperSlide key={index}>

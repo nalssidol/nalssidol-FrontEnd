@@ -13,7 +13,7 @@ const BackGroundColor = styled.div`
   justify-content: center;
   align-items: center;
 
-  /* background-color: #fefdf9; */
+  background-color: #ebebeb;
 `;
 
 const Wrapper = styled.div`
@@ -26,9 +26,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 
-  /* background-color: #fefdf9; */
+  background-color: #ffffff;
 
-  font-family: NotoSansRegular; /* 기본 폰트 재설정 */
+  font-family: Gmarket Sans; /* 기본 폰트 재설정 */
   color: #000;
 `;
 
