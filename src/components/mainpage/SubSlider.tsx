@@ -103,13 +103,15 @@ const SubSlider = ({ vilageData }: Props) => {
             direction="vertical"
           >
             <SwiperSlide>
-              <p>미세먼지 농도 | 좋음</p>
+              <S.SliderText>미세먼지 농도 | 좋음</S.SliderText>
             </SwiperSlide>
             <SwiperSlide>
-              <p>바람 세기 | {windLevel()}</p>
+              <S.SliderText>바람 세기 | {windLevel()}</S.SliderText>
             </SwiperSlide>
             <SwiperSlide>
-              <p>강수 확률 | {rainPercentData?.fcstValue}%</p>
+              <S.SliderText>
+                강수 확률 | {rainPercentData?.fcstValue}%
+              </S.SliderText>
             </SwiperSlide>
           </Swiper>
         </S.SubSliderBox>

@@ -48,38 +48,29 @@ const ClothesBoxs = ({ nowData, setDoldol }: Props) => {
           <S.ClothesBox>
             <img src="/Jacket.png" alt="외투" />
             <S.ClothesTitle>추천 외투</S.ClothesTitle>
-            <div>
+            <S.ClothesTextLabel>
               {outerList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
-              {/* 트렌치 코트
-              <br />
-              바람막이 */}
-            </div>
+            </S.ClothesTextLabel>
           </S.ClothesBox>
           <S.ClothesBox>
             <img src="/Top.png" alt="상의" />
             <S.ClothesTitle>추천 상의</S.ClothesTitle>
-            <div>
+            <S.ClothesTextLabel>
               {topList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
-              {/* 긴팔티
-              <br />
-              얇은 니트 */}
-            </div>
+            </S.ClothesTextLabel>
           </S.ClothesBox>
           <S.ClothesBox>
             <img src="/Bottom.png" alt="하의" />
             <S.ClothesTitle>추천 하의</S.ClothesTitle>
-            <div>
+            <S.ClothesTextLabel>
               {pantsList.slice(0, 2).map((data, index) => (
                 <S.ClothesText key={index}>{data}</S.ClothesText>
               ))}
-              {/* 스타킹
-              <br />
-              기모바지 */}
-            </div>
+            </S.ClothesTextLabel>
           </S.ClothesBox>
         </S.ClothesBoxsWrapper>
       )}

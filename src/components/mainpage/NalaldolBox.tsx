@@ -40,7 +40,7 @@ const NalaldolBox = (props: Props) => {
   return (
     <>
       <S.NalaldolBoxWrapper>
-        <S.Nalaldol src={props.doldol} alt="날알돌" />
+        <S.Nalaldol src={props.doldol || "/doldol.png"} alt="날알돌" />
         <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
         <S.Comment>{IsDoldolComent(props.vilageData)}</S.Comment>
       </S.NalaldolBoxWrapper>

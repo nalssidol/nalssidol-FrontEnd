@@ -13,7 +13,7 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   ) {
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        🌧️ 비가 올 예정이돌 🌧️
+        🌧️비 올 예정이돌🌧️
         <br />
         우산을 챙겨가돌!😎
       </p>
@@ -26,7 +26,7 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   ) {
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        ❄️ 눈이 올 예정이돌 ❄️
+        ❄️눈 올 예정이돌❄️
         <br />
         우산을 챙겨가돌!😎
       </p>
@@ -34,7 +34,7 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
   } else
     doldolComent = (
       <p style={{ textAlign: "center" }}>
-        ☀️ 날씨가 맑돌 ☀️ <br /> 외출하자돌!😎
+        ☀️날씨가 맑돌☀️ <br /> 외출하자돌!😎
       </p>
     );
   return doldolComent;
