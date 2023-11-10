@@ -26,8 +26,8 @@ const WindowBox = (props: Props) => {
       ? Math.max(...allTemperature.map((item) => parseInt(item.fcstValue)))
       : 0;
 
-  console.log("가장 낮은 온도:", minTemperature);
-  console.log("가장 높은 온도:", maxTemperature);
+  // console.log("가장 낮은 온도:", minTemperature);
+  // console.log("가장 높은 온도:", maxTemperature);
 
   // const min =
   //   props.vilageData.length > 0
@@ -42,7 +42,6 @@ const WindowBox = (props: Props) => {
   // 창문 밖 계절이미지
   const today: Date = new Date();
   const month: number = today.getMonth() + 1;
-  console.log(month);
 
   interface MonthToSeasonMap {
     [key: number]: string;

@@ -46,15 +46,15 @@ const Select = () => {
     const encodedGu = encodeURIComponent(gu);
 
     const url = `/api/location/?city=${encodedCity}&gu=${encodedGu}`;
-    console.log(url);
+    // console.log(url);
     
     const decodedUrl = decodeURIComponent(url);
-    console.log(decodedUrl);
+    // console.log(decodedUrl);
     
 
     API.get(decodedUrl)
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         const location = response.data;
 
         navigate("/", { state: location });

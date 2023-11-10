@@ -20,7 +20,7 @@ const SubSlider = ({ vilageData }: Props) => {
   const rainPercentData = vilageData.find(
     (data: ApiVilageFuture) => data.category === "POP"
   );
-  const rainPercent = rainPercentData ? rainPercentData.fcstValue : undefined;
+  // const rainPercent = rainPercentData ? rainPercentData.fcstValue : undefined;
 
   const wind = () => {
     if (!vilageData || vilageData.length === 0) return "0";
@@ -37,7 +37,7 @@ const SubSlider = ({ vilageData }: Props) => {
     else if (windValue >= 14) return "강풍";
     else return "";
   };
-  console.log("subSlider data- wind: " + wind() + " / rain: " + rainPercent);
+  // console.log("subSlider data- wind: " + wind() + " / rain: " + rainPercent);
 
 
   // 링크복사 ------------------------------------
@@ -61,25 +61,6 @@ const SubSlider = ({ vilageData }: Props) => {
 
       alert("클립보드에 주소가 복사되었습니다.");
     }
-  //   const currentURL = textArea.value;
-
-  //   // 항상 "http://"를 주소 앞에 추가합니다.
-  //   textArea.value = "http://" + currentURL;
-
-  //   textArea.select();
-  //   textArea.setSelectionRange(0, 99999);
-  //   document.execCommand("copy");
-  //   textArea.setSelectionRange(0, 0);
-
-  //   // 복사가 완료되면 원래의 주소로 다시 변경합니다.
-  //   textArea.value = currentURL;
-
-  //   alert("클립보드에 주소가 복사되었습니다.");
-
-  //   // 복사 이벤트 추적
-  //   gtag("event", "copy_link", {
-  //     event_category: "copy_link"
-  //   });
   };
 
   

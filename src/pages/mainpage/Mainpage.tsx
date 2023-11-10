@@ -102,7 +102,7 @@ const Mainpage: React.FC = () => {
         (res: ApiNowModel) => res.category === "T1H"
       );
 
-      console.log(response);
+      // console.log(response);
 
       setNowData(realtimeData);
     } catch (error) {

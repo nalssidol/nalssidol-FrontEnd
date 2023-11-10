@@ -29,7 +29,7 @@ const TImeSlider = (props: Props) => {
   // 현재시간 -> now
   const today: Date = new Date();
   const time: number = today.getHours();
-  console.log(time);
+  // console.log(time);
 
   interface HoursToTimeMap {
     [key: number]: string;
@@ -65,7 +65,7 @@ const TImeSlider = (props: Props) => {
     return HoursToTime[currentTime] || "오전 9시";
   };
   const Now: string = getCurrentTime(time);
-  console.log(Now);
+  // console.log(Now);
 
   return (
     <>

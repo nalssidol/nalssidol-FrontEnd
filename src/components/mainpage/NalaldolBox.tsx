@@ -12,7 +12,6 @@ const NalaldolBox = (props: Props) => {
   // 돌돌이 밑 계절이미지
   const today: Date = new Date();
   const month: number = today.getMonth() + 1;
-  console.log(month);
 
   interface MonthToSeasonMap {
     [key: number]: string;
@@ -42,7 +41,6 @@ const NalaldolBox = (props: Props) => {
       <S.NalaldolBoxWrapper>
         <S.Nalaldol src={props.doldol || "/doldol.png"} alt="날알돌" />
         <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
-        {/* <S.SeasonBottom src="/봄 아래.png" alt="계절 아래" /> */}
         <S.Comment>{IsDoldolComent(props.vilageData)}</S.Comment>
       </S.NalaldolBoxWrapper>
     </>
