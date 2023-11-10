@@ -23,6 +23,7 @@ import {
   formattedTime,
 } from "../../utils/weatherInfo";
 import Loading from "../loading/Loading";
+import Snow from "../../components/falling/Snow";
 
 const Mainpage: React.FC = () => {
   const location = useLocation();
@@ -113,6 +114,7 @@ const Mainpage: React.FC = () => {
           <Loading />
         ) : (
           <>
+            <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }}/>
             <TImeSlider vilageData={vilageData} />
             <SubSlider vilageData={vilageData} />
             <WindowBox
