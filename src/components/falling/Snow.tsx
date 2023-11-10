@@ -33,14 +33,14 @@ const Snow: React.FC<SnowProps> = ({style}) => {
         8: "/falling_여름.png",
         9: "/falling_가을.png",
         10: "/falling_가을.png",
-        11: "/가을_falling.png",
+        11: "/falling_가을.png",
         12: "/falling_겨울.png",
     };
     const getSeasonImg = (monthNum: number): string => {
         return MonthToSeason[monthNum] || "/falling_여름.png";
     };
     const SeasonImg: string = getSeasonImg(month);
-    console.log(SeasonImg);
+    // console.log(SeasonImg);
     
 
 

@@ -29,7 +29,7 @@ const ClothesBoxs = ({ nowData, setDoldol }: Props) => {
         setTopList(response.data.top.split(", "));
         setPantsList(response.data.pants.split(", "));
 
-        console.log(outerList);
+        // console.log(outerList);
         setDoldol(response.data.dol);
         setIsLoading(false);
       })
