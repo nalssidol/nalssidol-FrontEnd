@@ -33,7 +33,7 @@ const Snow: React.FC<SnowProps> = ({style}) => {
         8: "/falling_여름.png",
         9: "/falling_가을.png",
         10: "/falling_가을.png",
-        11: "/falling_가을.png",
+        11: "/가을_falling.png",
         12: "/falling_겨울.png",
     };
     const getSeasonImg = (monthNum: number): string => {
@@ -52,7 +52,7 @@ const Snow: React.FC<SnowProps> = ({style}) => {
     const getRandomX = (): number => Math.random() * (canvasWidth.current || 0);
     const getRandomY = (): number => Math.random() * (canvasHeight.current || 0);
     const getRandomSpeed = (): number => Math.random() * 0.05 + 0.3; // 0.3 ~ 0.35
-    const getRandomScale = (): number => Math.random() * 0.02 + 0.09; // 0.09 ~ 0.11
+    const getRandomScale = (): number => Math.random() * 0.05 + 0.2; // 0.02 + 0.09 => 0.09 ~ 0.11
     const getRandomDirection = (): number => (Math.random() < 0.5 ? -1 : 1);
 
     const data = useRef<Snowflake[]>([]);
@@ -176,6 +176,7 @@ const Snow: React.FC<SnowProps> = ({style}) => {
         // zIndex: 100,
         pointerEvents: "none",
         width: "100%",
+        transform: "translate3d(0, 0, 0)",
         ...style,
     };
 
