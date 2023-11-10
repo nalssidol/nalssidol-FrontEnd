@@ -20,7 +20,7 @@ import {
   DefaultNy,
   FormattedDate,
   FormattedNowDate,
-  formattedTime,
+  FormattedTime,
 } from "../../utils/weatherInfo";
 import Loading from "../loading/Loading";
 import Snow from "../../components/falling/Snow";
@@ -69,7 +69,7 @@ const Mainpage: React.FC = () => {
       numOfRows: "5",
       dataType: "JSON",
       base_date: FormattedNowDate,
-      base_time: formattedTime,
+      base_time: FormattedTime,
       nx: nx.toString(),
       ny: ny.toString(),
     },
@@ -96,9 +96,9 @@ const Mainpage: React.FC = () => {
   const fetchUltraNow = async () => {
     try {
       const response = await nowInstance.get(requests.fetchUltraNow);
-      const { item } = response.data.response.body.items;
+      const res = response.data.response.body.items.item;
 
-      const realtimeData = item.find(
+      const realtimeData = res.find(
         (res: ApiNowModel) => res.category === "T1H"
       );
 
