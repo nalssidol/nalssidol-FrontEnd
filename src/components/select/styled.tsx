@@ -17,20 +17,33 @@ export const PrevArrow = styled.img`
 `;
 export const SubText = styled.div`
   padding: 12px 0;
+
   color: #6e4d02;
   text-align: center;
   font-family: Gmarket Sans;
-  font-size: 20px;
   font-weight: 400;
   letter-spacing: 2.3px;
+
+  @media (max-width: 430px) {
+    font-size: 0.9rem; // 18px
+  }
+  @media (min-width: 390px) {
+    font-size: 1.2rem; // 18px
+  }
 `;
 export const MainText = styled.div`
   color: #322300;
   text-align: center;
   font-family: Gmarket Sans;
-  font-size: 26px;
   font-weight: 400;
   letter-spacing: 2.99px;
+
+  @media (max-width: 430px) {
+    font-size: 1.4rem; // 26px
+  }
+  @media (min-width: 390px) {
+    font-size: 1.8rem; // 26px
+  }
 `;
 
 // SelectAddress.tsx
@@ -59,10 +72,16 @@ export const SelectBar = styled.div`
 
   color: #8c8a86;
   font-family: Gmarket Sans;
-  font-size: 18px;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: -0.9px;
+
+  @media (max-width: 430px) {
+    font-size: 0.9rem; // 18px
+  }
+  @media (min-width: 390px) {
+    font-size: 1.2rem; // 18px
+  }
 `;
 export const DropDown = styled.img`
   position: absolute;
@@ -85,9 +104,17 @@ export const CitySection = styled.div`
   color: #646464;
   text-indent: 15px;
   font-family: Gmarket Sans;
-  font-size: 15px;
   font-weight: 400;
   letter-spacing: -0.75px;
+  font-size: 15px;
+  text-indent: 15px;
+
+  @media (max-width: 430px) {
+    font-size: 0.8rem; // 15px
+  }
+  @media (min-width: 390px) {
+    font-size: 1rem; // 15px
+  }
 `;
 export const GuSection = styled(CitySection)`
   width: 60%;
@@ -102,13 +129,6 @@ export const CityText = styled.div`
   display: flex;
   align-items: center;
   height: 35px;
-
-  color: #646464;
-  text-indent: 15px;
-  font-family: Gmarket Sans;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: -0.75px;
 `;
 interface CityStyledType {
   bgcolor: string;

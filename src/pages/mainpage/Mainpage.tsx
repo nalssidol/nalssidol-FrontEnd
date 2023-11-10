@@ -97,9 +97,12 @@ const Mainpage: React.FC = () => {
     try {
       const response = await nowInstance.get(requests.fetchUltraNow);
       const { item } = response.data.response.body.items;
+
       const realtimeData = item.find(
         (res: ApiNowModel) => res.category === "T1H"
       );
+
+      console.log(response);
 
       setNowData(realtimeData);
     } catch (error) {
@@ -114,7 +117,7 @@ const Mainpage: React.FC = () => {
           <Loading />
         ) : (
           <>
-            <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }}/>
+            <Snow style={{ position: "fixed", top: 0, left: 0, zIndex: 100 }} />
             <TImeSlider vilageData={vilageData} />
             <SubSlider vilageData={vilageData} />
             <WindowBox
