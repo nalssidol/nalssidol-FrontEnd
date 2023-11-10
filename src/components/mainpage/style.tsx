@@ -1,5 +1,4 @@
-import styled from "styled-components";
-// import YeongdeokSea from "../../assets/fonts/KyoboHand.ttf"
+import styled, { keyframes } from "styled-components";
 
 // TimeSlider.tsx
 export const TimeSliderWrapper = styled.div`
@@ -250,6 +249,17 @@ export const NalaldolBoxWrapper = styled.div`
 
   position: relative;
 `;
+const jumpDoldol = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(-30px);
+  }
+  100% {
+    transform: translateY(-30px);
+  }
+`;
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
     width: 200px;
@@ -262,6 +272,8 @@ export const Nalaldol = styled.img`
   position: absolute;
   bottom: 8%;
   right: 0;
+
+  animation: ${jumpDoldol} 0.5s infinite alternate;
 `;
 export const SeasonBottom = styled.img`
   width: 95%;
