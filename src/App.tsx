@@ -5,6 +5,7 @@ import { GlobalStyle } from "./globalStyle";
 
 const BackGroundColor = styled.div`
   width: 100vw;
+  min-width: 320px;
   min-height: 100vh;
 
   display: flex;
@@ -17,6 +18,7 @@ const BackGroundColor = styled.div`
 
 const Wrapper = styled.div`
   width: 100%;
+  min-width: 320px;
   max-width: 430px;
   min-height: 100vh;
 
