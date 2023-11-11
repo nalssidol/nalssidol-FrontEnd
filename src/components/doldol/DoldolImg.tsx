@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const DoldolimgWrapper = styled.div`
-  @media (max-width: 1600px) {
+  @media (max-width: 1400px) {
     display: none;
   }
 `;
@@ -26,7 +26,7 @@ const RightWrapper = styled.div`
   justify-content: space-around;
 
   position: absolute;
-  right: 10%;
+  right: 6%;
   top: 8%;
 
   img {

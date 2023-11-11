@@ -269,6 +269,7 @@ const jumpDoldol = keyframes`
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
     width: 200px;
+    object-fit: contain;
     /* height: 200px; */
   }
   @media (min-width: 390px) {
