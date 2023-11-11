@@ -1,19 +1,13 @@
+import * as S from "./style";
+
 const Loading = () => {
   return (
-    <div>
-      {/* <div style={{ position: "relative" }}> */}
+    <S.LoadingWrapper>
       <img
-        src="/loading2.png"
+        src="/loading.png"
         alt="로딩 중이돌 .. 😎"
-        style={{
-          width: "100%",
-          position: "absolute",
-          // bottom: "0",
-          left: "0",
-          zIndex: "100",
-        }}
       />
-    </div>
+    </S.LoadingWrapper>
   );
 };
 
