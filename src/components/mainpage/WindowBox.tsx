@@ -66,7 +66,6 @@ const WindowBox = (props: Props) => {
   };
   const SeasonImg: string = getSeasonImg(month);
   console.log(SeasonImg);
-  
 
   return (
     <>
@@ -84,7 +83,7 @@ const WindowBox = (props: Props) => {
 
         <S.SeasonImg>
           <img src={SeasonImg} alt="배경이미지" />
-          {/* <img src="summer.png" alt="배경이미지" /> */}
+          {/* <img src="winter.png" alt="배경이미지" /> */}
         </S.SeasonImg>
       </S.WindowBoxWrapper>
     </>

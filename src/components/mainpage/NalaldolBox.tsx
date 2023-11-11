@@ -37,7 +37,6 @@ const NalaldolBox = (props: Props) => {
   };
   const SeasonImg: string = getSeasonImg(month);
   console.log(SeasonImg);
-  
 
   return (
     <>
@@ -45,7 +44,7 @@ const NalaldolBox = (props: Props) => {
         <S.Comment>{IsDoldolComent(props.vilageData, props.nowData)}</S.Comment>
         <S.Nalaldol src={props.doldol || "/doldol.png"} alt="날알돌" />
         <S.SeasonBottom src={SeasonImg} alt="계절 아래" />
-        {/* <S.SeasonBottom src="여름 아래.png" alt="계절 아래" /> */}
+        {/* <S.SeasonBottom src="겨울 아래.png" alt="계절 아래" /> */}
       </S.NalaldolBoxWrapper>
     </>
   );
