@@ -95,8 +95,6 @@ export const SelectPlace = styled.div`
     right: 0;
     bottom: 136px;
 
-    border: 1px solid red;
-
     img {
         width: 65px;
         height: 90px;
