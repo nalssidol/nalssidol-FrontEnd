@@ -4,9 +4,8 @@ import styled, { keyframes } from "styled-components";
 export const TimeSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 10%;
 
-  margin-top: 5%; // 50px 12%
+  margin-top: 4%; // 50px 12%
 
   display: flex;
   justify-content: center;
@@ -16,9 +15,11 @@ export const TimeSliderWrapper = styled.div`
 
   @media (max-width: 430px) {
     font-size: 0.8rem; // 16px
+    height: 70px; //10%;
   }
   @media (min-width: 390px) {
-    font-size: 1rem; // 16px
+    font-size: 0.9rem; // 16px
+    height: 84px; //10%;
   }
 `;
 export const TimeSliderBox = styled.div`
@@ -53,7 +54,7 @@ export const TimeBox = styled.div`
 export const SubSliderWrapper = styled.div`
   width: 100vw;
   max-width: 430px;
-  height: 5%;
+  height: 40px; //5%;
 
   margin-top: 10px;
 
@@ -66,7 +67,7 @@ export const SubSliderWrapper = styled.div`
     font-size: 0.9rem; // 20px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 20px
+    font-size: 1rem; // 20px
   }
 
   img {
@@ -127,12 +128,11 @@ export const Location = styled.div`
   font-family: Gmarket Sans;
 
   @media (max-width: 430px) {
-    font-size: 0.9rem; // 18px
+    font-size: 0.7rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 18px
+    font-size: 1rem; // 18px
   }
-
   z-index: 1;
 
   img {
@@ -150,12 +150,12 @@ export const Temperature = styled.div`
 
   font-family: Gmarket Sans;
   font-weight: 600;
-  font-size: 3rem; //46px;
+
   @media (max-width: 430px) {
-    font-size: 3rem; // 46px
+    font-size: 2.4rem; // 46px
   }
   @media (min-width: 390px) {
-    font-size: 3.3rem; // 46px
+    font-size: 2.8rem; // 46px
   }
 
   z-index: 1;
@@ -165,10 +165,10 @@ export const HighAndLow = styled.div`
   font-weight: 600;
 
   @media (max-width: 430px) {
-    font-size: 0.9rem; // 18px
+    font-size: 0.7rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.2rem; // 18px
+    font-size: 0.9rem; // 18px
   }
 
   z-index: 1;
@@ -207,7 +207,7 @@ export const ClothesBoxsWrapper = styled.div`
     font-size: 0.9rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.1rem; // 18px
+    font-size: 1rem; // 18px
   }
 `;
 export const ClothesBox = styled.div`
@@ -269,14 +269,14 @@ const jumpDoldol = keyframes`
 export const Nalaldol = styled.img`
   @media (max-width: 430px) {
     width: 200px;
-    height: 200px;
+    /* height: 200px; */
   }
   @media (min-width: 390px) {
-    width: 68%;
-    height: auto;
+    width: 180px;
     object-fit: contain;
+    /* width: 68%;
+    height: auto; */
   }
-
 
   /* position: absolute;
   bottom: 8%;
@@ -313,7 +313,7 @@ export const Comment = styled.div`
     font-size: 0.8rem; // 18px
   }
   @media (min-width: 390px) {
-    font-size: 1.1rem; // 18px
+    font-size: 0.9rem; // 18px
   }
 
   background-image: url("/말풍선.png");
