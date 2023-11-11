@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import { GlobalStyle } from "./globalStyle";
+import DoldolImg from "./components/doldol/DoldolImg";
 
 const BackGroundColor = styled.div`
   width: 100vw;
   min-width: 320px;
-  min-height: 100vh;
+  height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -20,7 +21,8 @@ const Wrapper = styled.div`
   width: 100%;
   min-width: 320px;
   max-width: 430px;
-  min-height: 100vh;
+  height: 100%;
+  max-height: 935px;
 
   display: flex;
   flex-direction: column;
@@ -37,6 +39,7 @@ const App: React.FC = () => {
     <>
       <GlobalStyle />
       <BackGroundColor>
+        <DoldolImg />
         <Wrapper>
           <Outlet />
         </Wrapper>
