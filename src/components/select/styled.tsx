@@ -8,7 +8,7 @@ export const NowSelectedWrap = styled.div`
   justify-content: center;
 
   width: 100%;
-  height: 120px;
+  height: 105px;
 `;
 export const PrevArrow = styled.img`
   position: absolute;
@@ -91,7 +91,7 @@ export const DropDown = styled.img`
 export const SelectWrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 546px;
+  height: 496px;
   border-radius: 15px;
   border: 1px solid #919191;
   background: #fff;
@@ -120,7 +120,7 @@ export const GuSection = styled(CitySection)`
   width: 60%;
 `;
 export const CityScroll = styled.div`
-  height: 500px;
+  height: 450px; // 500px
   overflow-y: scroll;
   -ms-overflow-style: none; /* 인터넷 익스플로러 */
   scrollbar-width: none; /* 파이어폭스 */
