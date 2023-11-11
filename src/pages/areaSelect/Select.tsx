@@ -4,7 +4,7 @@ import NowSelected from "../../components/select/NowSelected";
 import SelectAddress from "../../components/select/SelectAddress";
 import { useLocation, useNavigate } from "react-router-dom";
 import * as S from "./style";
-import Loading from "../loading/Loading";
+import SelectLoading from "../loading/SelectLoading";
 
 const Select = () => {
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ const Select = () => {
   return (
     <S.SelectWrapper>
       {isLoading ? (
-        <Loading />
+        <SelectLoading />
       ) : (
         <>
           <NowSelected city={location.state.city} gu={location.state.gu} />
