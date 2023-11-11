@@ -101,3 +101,13 @@ export const SelectPlace = styled.div`
         margin-right: 20px;
     }
 `
+export const LoadingMent = styled.div`
+    font-family: KyoboHand;
+    font-size: 35px;
+
+    position: absolute;
+    bottom: 400px;
+    
+    width: 100%;
+    text-align: center;
+`
