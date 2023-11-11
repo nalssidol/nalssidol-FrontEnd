@@ -1,11 +1,16 @@
-import { ApiVilageFuture } from "../model/apiModel";
+import { ApiNowModel, ApiVilageFuture } from "../model/apiModel";
 
-export const IsDoldolComent = (data: ApiVilageFuture[]) => {
+export const IsDoldolComent = (data: ApiVilageFuture[], now:ApiNowModel | undefined) => {
   let doldolComent;
+
+  // 현재온도
+  const nowTemp = now && parseInt(now?.obsrValue)
+  let temp = nowTemp || 0;
+
   if (
     data?.some(
       (filteredData) =>
-        filteredData.category === "PTY" &&
+        filteredData.category === "PTY" && // T1M
         (filteredData.fcstValue === "1" || // 비
           filteredData.fcstValue === "2" || // 비+눈
           filteredData.fcstValue === "4") // 소나기
@@ -31,12 +36,24 @@ export const IsDoldolComent = (data: ApiVilageFuture[]) => {
         우산을 챙겨가돌!😎
       </p>
     );
+  } else if (
+    (data?.some(
+      (filteredData) =>
+        filteredData.category === "PTY" && filteredData.fcstValue === "0"
+    )) && (temp <= 10)
+  ) {
+    doldolComent = (
+      <p style={{ textAlign: "center" }}>
+        날씨가 춥돌☀️ <br /> 외투 챙기돌!😎
+      </p>
+    );
   } else
     doldolComent = (
       <p style={{ textAlign: "center" }}>
         날씨가 맑돌☀️ <br /> 외출하자돌!😎
       </p>
     );
+
   return doldolComent;
 };
 

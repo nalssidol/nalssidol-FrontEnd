@@ -130,7 +130,11 @@ const Mainpage: React.FC = () => {
               nowData={nowData === undefined ? DefaultNowModel : nowData}
               setDoldol={setDoldol}
             />
-            <NalaldolBox vilageData={vilageData} doldol={doldol} />
+            <NalaldolBox
+              vilageData={vilageData}
+              doldol={doldol}
+              nowData={nowData === undefined ? DefaultNowModel : nowData}
+            />
           </>
         )}
       </S.MainpageWrapper>
